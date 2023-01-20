@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('height');
             $table->integer('weight');
             $table->integer('headCircum');
+            $table->enum('gender', ['LAKI LAKI', 'PEREMPUAN']);
             $table->timestamps();
         });
     }
