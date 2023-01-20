@@ -23,8 +23,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/data-anak', function(){
-    return Inertia::render('DataAnak');
-})->middleware(['auth', 'verified', 'role:admin'])->name('data-anak');
+    return Inertia::render('UserData');
+})->middleware(['auth', 'verified', 'role:admin'])->name('user-data');
+
+Route::get('/imunisasi', function(){
+    return Inertia::render('ChildData');
+})->middleware(['auth', 'verified', 'role:admin'])->name('child-data');
 
 Route::prefix('prototype')->name('prototype.')->group(function () {
     Route::get('login', function(){
