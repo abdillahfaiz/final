@@ -22,13 +22,25 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/data-anak', function(){
+Route::get('/data-user', function(){
     return Inertia::render('UserData');
 })->middleware(['auth', 'verified', 'role:admin'])->name('user-data');
 
-Route::get('/imunisasi', function(){
+Route::get('/data-anak', function(){
     return Inertia::render('ChildData');
 })->middleware(['auth', 'verified', 'role:admin'])->name('child-data');
+
+Route::get('/artikel', function(){
+    return Inertia::render('Articles');
+})->middleware(['auth', 'verified', 'role:admin'])->name('articles');
+
+Route::get('/tambah-artikel', function(){
+    return Inertia::render('AddArticle');
+})->middleware(['auth', 'verified', 'role:admin'])->name('add-article');
+
+Route::get('/tambah-anak', function(){
+    return Inertia::render('AddChild');
+})->middleware(['auth', 'verified', 'role:admin'])->name('add-child');
 
 Route::prefix('prototype')->name('prototype.')->group(function () {
     Route::get('login', function(){

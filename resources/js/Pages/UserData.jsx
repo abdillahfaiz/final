@@ -1,6 +1,6 @@
 import React from "react";
 import Authenticated from "@/Layouts/Authenticated/Index";
-import { Head } from "@inertiajs/inertia-react";
+import { Link, Head } from "@inertiajs/inertia-react";
 import SecondaryButton from "@/Components/SecondaryButton";
 import DangerButton from "@/Components/DangerButton";
 import ThirdyButton from "@/Components/ThirdyButton";
@@ -45,9 +45,11 @@ export default function UserData() {
                                 </td>
                                 <td class="px-6 py-4 text-center">1</td>
                                 <td class="px-6 py-4 text-center">
-                                    <ThirdyButton>
-                                        Tambah Data Anak
-                                    </ThirdyButton>
+                                    <a href={route("add-child")}>
+                                        <ThirdyButton>
+                                            Tambah Data Anak
+                                        </ThirdyButton>
+                                    </a>
                                     <SecondaryButton>Edit</SecondaryButton>
                                     <DangerButton>Hapus</DangerButton>
                                 </td>

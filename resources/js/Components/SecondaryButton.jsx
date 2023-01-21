@@ -9,6 +9,7 @@ export default function SecondaryButton({ type = 'button', className = '', proce
                 } ` + className
             }
             disabled={processing}
+            
         >
             {children}
         </button>

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('description');
             $table->string('image');
             $table->string('creator');
             $table->longText('content');

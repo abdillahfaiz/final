@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('mom_name');
             $table->date('birthdate');
+            $table->string('address');
             $table->integer('height');
             $table->integer('weight');
             $table->integer('headCircum');

@@ -9,6 +9,7 @@ export default function ThirdyButton({ type = 'submit', className = '', processi
                 } ` + className
             }
             disabled={processing}
+            
         >
             {children}
         </button>
