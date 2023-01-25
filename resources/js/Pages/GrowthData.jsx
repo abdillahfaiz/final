@@ -7,35 +7,49 @@ import Footer from "@/Layouts/Authenticated/Footer";
 import { Icon } from "@iconify/react";
 import Navbar from "@/Layouts/Authenticated/Navbar";
 
-export default function AddChild() {
+export default function GrowthData() {
     return (
         <>
-        <Navbar/>
-            <Head title="Tambah Data Anak" />
-            <div class="mt-28 mx-auto w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <div class="flex flex-col items-center py-8 px-8 ">
-                    <img
-                        class="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="https://source.unsplash.com/random/200x200?sig=1"
-                        alt="Bonnie image"
-                    />
-                    <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Rahayu Pratiwi
+            <Navbar />
+            <Head title="Data Pertumbuhan" />
+
+            <div class="mt-28 mx-12 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex flex-col px-3 py-3">
+                    <h5 className="my-1 flex">
+                        <div className="pt-1 mx-1">
+                            <Icon icon="mdi:user" />
+                        </div>
+                        Identitas Anak
                     </h5>
-                    <span class="text-sm text-gray-500 dark:text-gray-400">
-                        maheswara.hari@yahoo.com
+                    <hr />
+                    <h5 class="mb-1 mt-2 text-md font-medium text-gray-900 dark:text-white">
+                        Nama : Budi Mahendra
+                    </h5>
+                    <span class="text-xs text-gray-500 dark:text-gray-400">
+                        Gender : LAKI LAKI
+                    </span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400">
+                        Tanggal Lahir : 28 - 05 - 2023
+                    </span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400">
+                        Nama Ibu : Rahayu Pratiwi
+                    </span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400">
+                        Nama Ibu : Jl.Marjuk No. 4-6 Kebon Kawung Kota Bandung
                     </span>
                 </div>
             </div>
 
-            <div className="block m-12 p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 ">
+            <div className="block mx-12 mt-6 p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 ">
                 <div className="flex">
-                    <Icon icon="material-symbols:filter-list-rounded" />
                     <div className="mb-3 mx-1">
-                        <h1 class="text-xl font-extrabold text-black">
+                        <h1 class="flex text-xl font-extrabold text-black">
+                            <div className="pt-1 mx-1">
+                                <Icon icon="material-symbols:filter-list-rounded" />
+                            </div>
                             List
                             <small class="ml-2 font-semibold text-gray-500 dark:text-gray-400">
-                                Data Anak
+                                Riwayat Pertumbuhan Anak
                             </small>
                         </h1>
                     </div>
@@ -45,17 +59,17 @@ export default function AddChild() {
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-sm text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="px-6 py-6">
-                                    Nama Lengkap Anak
-                                </th>
-                                <th scope="col" class="px-6 py-6">
-                                    Nama Ibu
+                                <th scope="col" class="px-6 py-6 text-center">
+                                    Tinggi Badan
                                 </th>
                                 <th scope="col" class="px-6 py-6 text-center">
-                                    Tanggal Lahir
+                                    Berat Badan{" "}
                                 </th>
                                 <th scope="col" class="px-6 py-6 text-center">
-                                    Gender
+                                    Lingkar Kepala{" "}
+                                </th>
+                                <th scope="col" class="px-6 py-6 text-center">
+                                    Tanggal
                                 </th>
                                 <th scope="col" class="px-6 py-6  text-center">
                                     Action
@@ -64,19 +78,29 @@ export default function AddChild() {
                         </thead>
                         <tbody>
                             <tr class="bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
-                                <th
-                                    scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                                >
-                                    Budi Mahendra
-                                </th>
-                                <td class="px-6 py-4">Rahayu Pratiwi</td>
+                                <td class="px-6 py-4 text-center">44 cm</td>
+                                <td class="px-6 py-4 text-center">3,5 kg</td>
+                                <td class="px-6 py-4 text-center">33 cm</td>
+                                <td class="px-6 py-4 text-center">21 - 11 - 2022</td>
                                 <td class="px-6 py-4 text-center">
-                                    28 - 05 - 2020
+                                    <DangerButton>Hapus</DangerButton>
                                 </td>
-                                <td class="px-6 py-4 text-center">Laki Laki</td>
+                            </tr>
+                            <tr class="bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
+                                <td class="px-6 py-4 text-center">49 cm</td>
+                                <td class="px-6 py-4 text-center">4,0 kg</td>
+                                <td class="px-6 py-4 text-center">35 cm</td>
+                                <td class="px-6 py-4 text-center">21 - 12 - 2022</td>
                                 <td class="px-6 py-4 text-center">
-                                    <SecondaryButton>Edit</SecondaryButton>
+                                    <DangerButton>Hapus</DangerButton>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
+                                <td class="px-6 py-4 text-center">53 cm</td>
+                                <td class="px-6 py-4 text-center">4,3 kg</td>
+                                <td class="px-6 py-4 text-center">36 cm</td>
+                                <td class="px-6 py-4 text-center">21 - 01 - 2023</td>
+                                <td class="px-6 py-4 text-center">
                                     <DangerButton>Hapus</DangerButton>
                                 </td>
                             </tr>

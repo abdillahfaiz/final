@@ -24,6 +24,8 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "chart.js": "^4.2.0",
+        "react-chartjs-2": "^5.2.0",
         "tw-elements": "^1.0.0-alpha13"
     }
 }

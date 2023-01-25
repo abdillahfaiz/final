@@ -1,4 +1,4 @@
-export default function ThirdyButton({ type = 'submit', className = '', processing, children, onClick }) {
+export default function ThirdyButton({ type = 'submit', className = '', processing, children, onClick, href }) {
     return (
         <button
             type={type}
@@ -9,6 +9,7 @@ export default function ThirdyButton({ type = 'submit', className = '', processi
                 } ` + className
             }
             disabled={processing}
+            href={href}
             
         >
             {children}

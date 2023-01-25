@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('mom_name');
             $table->date('birthdate');
             $table->string('address');
-            $table->integer('height');
-            $table->integer('weight');
-            $table->integer('headCircum');
+            $table->integer('height')->nullable();
+            $table->integer('weight')->nullable();
+            $table->integer('headCircum')->nullable();
             $table->enum('gender', ['LAKI LAKI', 'PEREMPUAN']);
             $table->timestamps();
         });

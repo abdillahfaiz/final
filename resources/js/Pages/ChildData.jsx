@@ -38,9 +38,11 @@ export default function ChildData() {
                                 <td class="px-6 py-4">Perempuan</td>
                                 <td class="px-6 py-4">Ayu Yuniar</td>
                                 <td class="px-6 py-4 text-center">
+                                    <a href={route('growth-data')}>
                                     <FourthyButton>
-                                        Data Perkembangan
+                                        Data Pertumbuhan
                                     </FourthyButton>
+                                    </a>
                                     <FivthyButton>Data Imunisasi</FivthyButton>
                                 </td>
                             </tr>
@@ -55,7 +57,7 @@ export default function ChildData() {
                                 <td class="px-6 py-4">Kardi Natsir </td>
                                 <td class="px-6 py-4 text-center">
                                     <FourthyButton>
-                                        Data Perkembangan
+                                    Data Pertumbuhan
                                     </FourthyButton>
                                     <FivthyButton>Data Imunisasi</FivthyButton>
                                 </td>
@@ -71,7 +73,7 @@ export default function ChildData() {
                                 <td class="px-6 py-4">Michelle Halimah </td>
                                 <td class="px-6 py-4 text-center">
                                     <FourthyButton>
-                                        Data Perkembangan
+                                    Data Pertumbuhan
                                     </FourthyButton>
                                     <FivthyButton>Data Imunisasi</FivthyButton>
                                 </td>
@@ -87,7 +89,7 @@ export default function ChildData() {
                                 <td class="px-6 py-4">Dinda Haryanti </td>
                                 <td class="px-6 py-4 text-center">
                                     <FourthyButton>
-                                        Data Perkembangan
+                                    Data Pertumbuhan
                                     </FourthyButton>
                                     <FivthyButton>Data Imunisasi</FivthyButton>
                                 </td>
@@ -102,8 +104,9 @@ export default function ChildData() {
                                 <td class="px-6 py-4">Laki Laki</td>
                                 <td class="px-6 py-4">Nova Puspita </td>
                                 <td class="px-6 py-4 text-center">
+                                    
                                     <FourthyButton>
-                                        Data Perkembangan
+                                    Data Pertumbuhan
                                     </FourthyButton>
                                     <FivthyButton>Data Imunisasi</FivthyButton>
                                 </td>

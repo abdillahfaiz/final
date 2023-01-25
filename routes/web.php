@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserDataController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -18,35 +20,35 @@ use Inertia\Inertia;
 
 Route::redirect('/', 'prototype/login');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
-Route::get('/data-user', function(){
-    return Inertia::render('UserData');
-})->middleware(['auth', 'verified', 'role:admin'])->name('user-data');
+Route::get('/data-user', [UserDataController::class, 'index'])->middleware(['auth'])->name('user-data');
 
-Route::get('/data-anak', function(){
+Route::get('/data-anak', function () {
     return Inertia::render('ChildData');
 })->middleware(['auth', 'verified', 'role:admin'])->name('child-data');
 
-Route::get('/artikel', function(){
+Route::get('/artikel', function () {
     return Inertia::render('Articles');
 })->middleware(['auth', 'verified', 'role:admin'])->name('articles');
 
-Route::get('/tambah-artikel', function(){
+Route::get('/tambah-artikel', function () {
     return Inertia::render('AddArticle');
 })->middleware(['auth', 'verified', 'role:admin'])->name('add-article');
 
-Route::get('/tambah-anak', function(){
+Route::get('/tambah-anak', function () {
     return Inertia::render('AddChild');
 })->middleware(['auth', 'verified', 'role:admin'])->name('add-child');
 
+Route::get('/data-pertumbuhan', function () {
+    return Inertia::render('GrowthData');
+})->middleware(['auth', 'verified', 'role:admin'])->name('growth-data');
+
 Route::prefix('prototype')->name('prototype.')->group(function () {
-    Route::get('login', function(){
+    Route::get('login', function () {
         return Inertia::render('Prototype/Login');
     })->name('login');
-    Route::get('register', function(){
+    Route::get('register', function () {
         return Inertia::render('Prototype/Register');
     })->name('register');
 });
@@ -57,4 +59,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
