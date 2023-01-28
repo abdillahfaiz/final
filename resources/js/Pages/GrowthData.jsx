@@ -1,21 +1,24 @@
 import React from "react";
 import SecondaryButton from "@/Components/SecondaryButton";
-import DangerButton from "@/Components/DangerButton";
+import DangerButton from "@/Components/Delete";
 import { Head } from "@inertiajs/inertia-react";
 import PrimaryButton from "@/Components/PrimaryButton";
 import Footer from "@/Layouts/Authenticated/Footer";
 import { Icon } from "@iconify/react";
 import Navbar from "@/Layouts/Authenticated/Navbar";
 
-export default function GrowthData() {
+export default function GrowthData({children}) {
     return (
         <>
             <Navbar />
             <Head title="Data Pertumbuhan" />
+            <div className="my-24 mx-10">
 
-            <div class="mt-28 mx-12 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+            
+
+            <div class="mt-28 w-full block p-3 bg-white border border-gray-200 rounded-lg shadow-md">
                 <div class="flex flex-col px-3 py-3">
-                    <h5 className="my-1 flex">
+                    <h5 className=" flex">
                         <div className="pt-1 mx-1">
                             <Icon icon="mdi:user" />
                         </div>
@@ -23,24 +26,24 @@ export default function GrowthData() {
                     </h5>
                     <hr />
                     <h5 class="mb-1 mt-2 text-md font-medium text-gray-900 dark:text-white">
-                        Nama : Budi Mahendra
+                        Nama :{children.name}
                     </h5>
                     <span class="text-xs text-gray-500 dark:text-gray-400">
-                        Gender : LAKI LAKI
+                        Gender : {children.gender}
                     </span>
                     <span class="text-xs text-gray-500 dark:text-gray-400">
-                        Tanggal Lahir : 28 - 05 - 2023
+                        Tanggal Lahir : {children.birthdate}
                     </span>
                     <span class="text-xs text-gray-500 dark:text-gray-400">
-                        Nama Ibu : Rahayu Pratiwi
+                        Nama Ibu : {children.mom_name}
                     </span>
                     <span class="text-xs text-gray-500 dark:text-gray-400">
-                        Nama Ibu : Jl.Marjuk No. 4-6 Kebon Kawung Kota Bandung
+                        Alamat : {children.address}
                     </span>
                 </div>
             </div>
 
-            <div className="block mx-12 mt-6 p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 ">
+            <div className="block  mt-6 p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 ">
                 <div className="flex">
                     <div className="mb-3 mx-1">
                         <h1 class="flex text-xl font-extrabold text-black">
@@ -109,16 +112,15 @@ export default function GrowthData() {
                 </div>
             </div>
 
-            <div className="block m-12 p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 ">
+            <div className="block mt-12 p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 ">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                         <div class="px-4 sm:px-0">
                             <h3 class="text-lg font-medium leading-6 text-gray-900">
-                                Identitas Anak
+                                Riwayat Pertumbuhan Anak                            
                             </h3>
                             <p class="mt-1 text-sm text-gray-600">
-                                Sesuaikan identitas anak seperti yang tertera
-                                pada akta kelahiran
+                                Diupdate setiap kali datang ke posyandu
                             </p>
                         </div>
                     </div>
@@ -221,6 +223,7 @@ export default function GrowthData() {
                         </form>
                     </div>
                 </div>
+            </div>
             </div>
             <Footer />
         </>

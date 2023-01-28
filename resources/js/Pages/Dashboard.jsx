@@ -1,38 +1,60 @@
 import React from "react";
-import Authenticated from "@/Layouts/Authenticated/Index";
 import { Head } from "@inertiajs/inertia-react";
 import PrimaryButton from "@/Components/PrimaryButton";
-import PieChart from "@/Components/PieChart";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Navbar from "@/Layouts/Authenticated/Navbar";
 import Footer from "@/Layouts/Authenticated/Footer";
-import DoughnoutChart from "@/Components/Chart";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut, PolarArea} from "react-chartjs-2";
+// import PolarAreaChart from "@/Components/PolarAreaChart";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 
-export default function Dashboard({ auth, children, male, female}) {
-    const genderData = {
-        labels: ['Laki Laki', 'Perempuan'],
-        datasets: [{
-            label: 'Gender',
-            data: {male, female},
-            backgroundColor: ['blue', 'green'],
-        }]
-    }
+export default function Dashboard({ auth, children, male, female, user }) {
+    const data = {
+        labels: ["Laki Laki", "Perempuan", "Jumlah Anak", "Total User"],
+        datasets: [
+            {
+                label: "Gender",
+                data: [male, female, children, user],
+                backgroundColor: ["#458DB3", "#5CBF88", "#EA7777" , "#C7F37E"],
+            },
+        ],
+    };
 
-    const option = {}
+    const options = {};
     return (
         <>
             <Navbar />
+
             <div className="my-24 mx-10">
                 <Head title="Dashboard" />
-                <div>
-                    <div className="w-full block my-6 p-3 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <div className="w-full block p-3 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100">
                         <h1>Hi! Welcome back {auth.user.name}</h1>
                     </div>
+                <div className="my-28">
+                    <h1 className="animate-pulse mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                        Sistem Informasi Monitoring{" "}
+                        <span className="text-blue-600 dark:text-blue-500">
+                           Pertumbuhan Anak 
+                        </span>{" "}
+                        dan
+                        <span className="text-blue-600 dark:text-blue-500">{" "}
+                            Imunisasi
+                        </span>
+                    </h1>
+                    <p className="mb-12 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+                        Dibuat dan dikembangkan agar mempermudah input data perkembangan anak setiap bulan bagi kader posyandu setempat dan membantu para ibu untuk mempermudah dalam monitoring perkembangan anak nya
+                    </p>
+                    <p><span class="bg-blue-100 text-blue-800 text-xl font-semibold  px-2.5 py-0.5 rounded">Total User : {user}</span></p>
+                </div>
+
+                <div>
+                    
 
                     {/* -- COUNT -- */}
-                    <div className="container my-24 px-6 mx-auto">
-                        <section className="mb-32 text-gray-800 text-center">
+                    <div className="container mb-24 mt-16 px-6 mx-auto">
+                        <section className="mb-32 text-gray-800 mt-40 text-center">
                             <h2 className="text-3xl font-bold mb-20">
                                 Statistik Jumlah Data Anak
                             </h2>
@@ -136,9 +158,23 @@ export default function Dashboard({ auth, children, male, female}) {
                             </div>
                         </section>
                     </div>
+
                     {/* -- END COUNT -- */}
 
-                    {/* <DoughnoutChart data={genderData} options={option}></DoughnoutChart> */}
+                    {/* -- CHART START -- */}
+                    <div className="flex justify-center">
+                        <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+                            <Doughnut data={data} options={options}></Doughnut>
+                        </div>
+                    </div>
+                    {/* <div className="flex justify-center">
+                        <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+                            <PolarArea data={data} options={options}></PolarArea>
+                        </div>
+                    </div> */}
+                  
+
+                    {/* -- CHART END -- */}
 
                     {/* --ARTICLES-- */}
                     <hr className="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700" />

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Children;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -19,14 +20,17 @@ class UserDataController extends Controller
         return Inertia::render('UserData', ['user' => $user]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function detail(User $user, $id, Children $children)
+    {
+        $user = User::find($id);
+        $children = Children::where('user_id', $user->id)->get();
+        $countChild = Children::where('user_id', $user->id)->count();
+        return Inertia::render('AddChild', ['user' => $user, 'children' => $children, 'countChild' => $countChild]);
+    }
+
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -37,7 +41,25 @@ class UserDataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'mom_name' => 'required',
+            'address' => 'required',
+            'birthdate' => 'required',
+            'user_id' => 'required',
+            'gender' => 'required',
+        ]);
+
+        Children::create([
+            'name' => $request->name,
+            'mom_name' => $request->mom_name,
+            'address' => $request->address,
+            'birthdate' => $request->birthdate,
+            'user_id' => $request->user_id,
+            'gender' => $request->gender,
+        ]);
+        return redirect()->back()->with('succes','Data Berhasil Disimpan!');
+        return Inertia::render('AddChild',)->with('succes','Data Berhasil Disimpan!');
     }
 
     /**
@@ -48,7 +70,7 @@ class UserDataController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -80,8 +102,20 @@ class UserDataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Children $children, $id)
     {
-        //
+        $children = Children::find($id);
+        $children->delete();
+
+        return redirect()->back()->with('succes', 'Data berhasil di hapus');
+    }
+
+    public function delete(User $user, $id)
+    {
+        // dd($user);
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect()->route('user-data')->with('succes','Data Berhasil Disimpan!');
     }
 }

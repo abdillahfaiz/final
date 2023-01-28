@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('immunizations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreignId('children_id')->references('id')->on('childrens')->cascadeOnDelete();
             $table->string('name');
             $table->enum('status', ['SUDAH', 'BELUM']);
             $table->timestamps();

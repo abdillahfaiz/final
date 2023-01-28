@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Immunization extends Model
+class GrowthData extends Model
 {
     use HasFactory;
-
     protected $guarded = [
         'id'
     ];
@@ -16,5 +15,4 @@ class Immunization extends Model
     public function user(){
         return $this->belongsTo(Children::class);
     }
-
 }

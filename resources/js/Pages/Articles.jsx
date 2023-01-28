@@ -20,7 +20,7 @@ export default function Articles() {
                     </a>
                 </div>
                 <div className="my-8 grid grid-rows-1 xl:flex ">
-                    <div className=" mx-12 mb-8 w-64 bg-white border border-gray-200 rounded-lg shadow-md hover:drop-shadow-2xl duration-1000">
+                    <div className=" mx-12 mb-8 w-64 bg-white  rounded-lg  hover:drop-shadow-2xl duration-1000">
                         <a href="#">
                             <img
                                 className="rounded-t-lg w-64 h-42"
@@ -44,7 +44,7 @@ export default function Articles() {
                             </p>
                         </div>
                     </div>
-                    <div className=" mx-12 mb-8 w-64 bg-white border border-gray-200 rounded-lg shadow-md hover:drop-shadow-2xl duration-1000">
+                    <div className=" mx-12 mb-8 w-64 bg-white  rounded-lg hover:drop-shadow-2xl duration-1000">
                         <a href="#">
                             <img
                                 className="rounded-t-lg w-64 h-42"
@@ -68,7 +68,7 @@ export default function Articles() {
                             </p>
                         </div>
                     </div>
-                    <div className=" mx-12 mb-8 w-64 bg-white border border-gray-200 rounded-lg shadow-md hover:drop-shadow-2xl duration-1000">
+                    <div className=" mx-12 mb-8 w-64 bg-white  rounded-lg  hover:drop-shadow-2xl duration-1000">
                         <a href="#">
                             <img
                                 className="rounded-t-lg w-64 h-42"
@@ -92,7 +92,7 @@ export default function Articles() {
                             </p>
                         </div>
                     </div>
-                    <div className=" mx-12 mb-8 w-64 bg-white border border-gray-200 rounded-lg shadow-md hover:drop-shadow-2xl duration-1000">
+                    <div className=" mx-12 mb-8 w-64 bg-white  rounded-lg  hover:drop-shadow-2xl duration-1000">
                             <a href="#">
                             <img
                                 className="rounded-t-lg w-64 h-42"

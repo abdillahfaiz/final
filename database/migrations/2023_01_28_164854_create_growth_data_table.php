@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('childrens', function (Blueprint $table) {
+        Schema::create('growth_data', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
-            $table->string('name');
-            $table->string('mom_name');
-            $table->date('birthdate');
-            $table->string('address');
-            $table->enum('gender', ['LAKI LAKI', 'PEREMPUAN'])->nullable();
+            $table->foreignId('children_id')->references('id')->on('chiildrens')->cascadeOnDelete();
+            $table->integer('height');
+            $table->integer('weight');
+            $table->integer('head_circum');
+            $table->string('date');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('childrens');
+        Schema::dropIfExists('growth_data');
     }
 };

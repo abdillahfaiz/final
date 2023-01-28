@@ -47,9 +47,7 @@ class User extends Authenticatable
         return $this->hasMany(Children::class);
     }
 
-    public function immunization(){
-        return $this->hasMany(Immunization::class);
-    }
+   
 
     
 }
