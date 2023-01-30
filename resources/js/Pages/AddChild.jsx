@@ -1,11 +1,9 @@
-import React, { Children, useState } from "react";
-// import SecondaryButton from "@/Components/SecondaryButton";
-// import DangerButton from "@/Components/Delete";
-import { Head, Link } from "@inertiajs/inertia-react";
-import PrimaryButton from "@/Components/PrimaryButton";
-import Footer from "@/Layouts/Authenticated/Footer";
-import { Icon } from "@iconify/react";
+import React, {  useState } from "react";
+import { Head } from "@inertiajs/inertia-react";
 import { Inertia } from '@inertiajs/inertia';
+import PrimaryButton from "@/Components/PrimaryButton";
+import { Icon } from "@iconify/react";
+import Footer from "@/Layouts/Authenticated/Footer";
 import Navbar from "@/Layouts/Authenticated/Navbar";
 import Delete from "@/Components/Delete";
 
@@ -31,7 +29,7 @@ export default function AddChild({ user, children, errors }) {
         };
         console.log(data);
         Inertia.post("/tambah-anak", data);
-        setName("");
+        setName;
         setMom_name;
         setBirthdate;
         setAddress;
@@ -279,3 +277,4 @@ export default function AddChild({ user, children, errors }) {
         </>
     );
 }
+

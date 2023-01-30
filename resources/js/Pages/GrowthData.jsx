@@ -1,229 +1,329 @@
-import React from "react";
-import SecondaryButton from "@/Components/SecondaryButton";
-import DangerButton from "@/Components/Delete";
-import { Head } from "@inertiajs/inertia-react";
-import PrimaryButton from "@/Components/PrimaryButton";
-import Footer from "@/Layouts/Authenticated/Footer";
+import React, { useState } from "react";
+import { Head, Link } from "@inertiajs/inertia-react";
+import { Inertia } from "@inertiajs/inertia";
 import { Icon } from "@iconify/react";
 import Navbar from "@/Layouts/Authenticated/Navbar";
+import Footer from "@/Layouts/Authenticated/Footer";
+import PrimaryButton from "@/Components/PrimaryButton";
+import Delete from "@/Components/Delete";
 
-export default function GrowthData({children}) {
+export default function GrowthData({ children, growthData }) {
+    console.log(children);
+    const [height, setHeight] = useState("");
+    const [weight, setWeight] = useState("");
+    const [head_circum, setHead_circum] = useState("");
+    const [status, setStatus] = useState("");
+    const [date, setDate] = useState("");
+    const [children_id, setChildren_id] = useState(children.id);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const data = {
+            height,
+            weight,
+            head_circum,
+            status,
+            date,
+            children_id,
+        };
+        console.log(data);
+
+        Inertia.post("/tambah-data-pertumbuhan", data);
+        setHeight,
+            setWeight,
+            setHead_circum,
+            setStatus,
+            setDate,
+            setChildren_id
+    };
+    // console.log(children);
+
+    // console.log(growthData);
     return (
         <>
             <Navbar />
             <Head title="Data Pertumbuhan" />
             <div className="my-24 mx-10">
-
-            
-
-            <div class="mt-28 w-full block p-3 bg-white border border-gray-200 rounded-lg shadow-md">
-                <div class="flex flex-col px-3 py-3">
-                    <h5 className=" flex">
-                        <div className="pt-1 mx-1">
-                            <Icon icon="mdi:user" />
-                        </div>
-                        Identitas Anak
-                    </h5>
-                    <hr />
-                    <h5 class="mb-1 mt-2 text-md font-medium text-gray-900 dark:text-white">
-                        Nama :{children.name}
-                    </h5>
-                    <span class="text-xs text-gray-500 dark:text-gray-400">
-                        Gender : {children.gender}
-                    </span>
-                    <span class="text-xs text-gray-500 dark:text-gray-400">
-                        Tanggal Lahir : {children.birthdate}
-                    </span>
-                    <span class="text-xs text-gray-500 dark:text-gray-400">
-                        Nama Ibu : {children.mom_name}
-                    </span>
-                    <span class="text-xs text-gray-500 dark:text-gray-400">
-                        Alamat : {children.address}
-                    </span>
-                </div>
-            </div>
-
-            <div className="block  mt-6 p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 ">
-                <div className="flex">
-                    <div className="mb-3 mx-1">
-                        <h1 class="flex text-xl font-extrabold text-black">
+                <div class="mt-28 w-full block p-3 bg-white border border-gray-200 rounded-lg shadow-md">
+                    <div class="flex flex-col px-3 py-3">
+                        <h5 className=" flex">
                             <div className="pt-1 mx-1">
-                                <Icon icon="material-symbols:filter-list-rounded" />
+                                <Icon icon="mdi:user" />
                             </div>
-                            List
-                            <small class="ml-2 font-semibold text-gray-500 dark:text-gray-400">
-                                Riwayat Pertumbuhan Anak
-                            </small>
-                        </h1>
+                            Identitas Anak
+                        </h5>
+                        <hr />
+                        <h5 class="mb-1 mt-2 text-md font-medium text-gray-900 dark:text-white">
+                            Nama : {children.name}
+                        </h5>
+                        <span class="text-xs text-gray-500 dark:text-gray-400">
+                            Gender : {children.gender}
+                        </span>
+                        <span class="text-xs text-gray-500 dark:text-gray-400">
+                            Tanggal Lahir : {children.birthdate}
+                        </span>
+                        <span class="text-xs text-gray-500 dark:text-gray-400">
+                            Nama Ibu : {children.mom_name}
+                        </span>
+                        <span class="text-xs text-gray-500 dark:text-gray-400">
+                            Alamat : {children.address}
+                        </span>
                     </div>
                 </div>
 
-                <div class="relative overflow-x-auto  sm:rounded-lg">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-sm text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-6 text-center">
-                                    Tinggi Badan
-                                </th>
-                                <th scope="col" class="px-6 py-6 text-center">
-                                    Berat Badan{" "}
-                                </th>
-                                <th scope="col" class="px-6 py-6 text-center">
-                                    Lingkar Kepala{" "}
-                                </th>
-                                <th scope="col" class="px-6 py-6 text-center">
-                                    Tanggal
-                                </th>
-                                <th scope="col" class="px-6 py-6  text-center">
-                                    Action
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
-                                <td class="px-6 py-4 text-center">44 cm</td>
-                                <td class="px-6 py-4 text-center">3,5 kg</td>
-                                <td class="px-6 py-4 text-center">33 cm</td>
-                                <td class="px-6 py-4 text-center">21 - 11 - 2022</td>
-                                <td class="px-6 py-4 text-center">
-                                    <DangerButton>Hapus</DangerButton>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
-                                <td class="px-6 py-4 text-center">49 cm</td>
-                                <td class="px-6 py-4 text-center">4,0 kg</td>
-                                <td class="px-6 py-4 text-center">35 cm</td>
-                                <td class="px-6 py-4 text-center">21 - 12 - 2022</td>
-                                <td class="px-6 py-4 text-center">
-                                    <DangerButton>Hapus</DangerButton>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
-                                <td class="px-6 py-4 text-center">53 cm</td>
-                                <td class="px-6 py-4 text-center">4,3 kg</td>
-                                <td class="px-6 py-4 text-center">36 cm</td>
-                                <td class="px-6 py-4 text-center">21 - 01 - 2023</td>
-                                <td class="px-6 py-4 text-center">
-                                    <DangerButton>Hapus</DangerButton>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div className="block mt-12 p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 ">
-                <div class="md:grid md:grid-cols-3 md:gap-6">
-                    <div class="md:col-span-1">
-                        <div class="px-4 sm:px-0">
-                            <h3 class="text-lg font-medium leading-6 text-gray-900">
-                                Riwayat Pertumbuhan Anak                            
-                            </h3>
-                            <p class="mt-1 text-sm text-gray-600">
-                                Diupdate setiap kali datang ke posyandu
-                            </p>
+                <div className="block  mt-6 p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 ">
+                    <div className="flex">
+                        <div className="mb-3 mx-1">
+                            <h1 class="flex text-xl font-extrabold text-black">
+                                <div className="pt-1 mx-1">
+                                    <Icon icon="material-symbols:filter-list-rounded" />
+                                </div>
+                                List
+                                <small class="ml-2 font-semibold text-gray-500 dark:text-gray-400">
+                                    Riwayat Pertumbuhan Anak
+                                </small>
+                            </h1>
                         </div>
                     </div>
-                    <div class="mt-5 md:col-span-2 md:mt-0">
-                        <form action="#" method="POST">
-                            <div class="overflow-hidden shadow sm:rounded-md">
-                                <div class="bg-white px-4 py-5 sm:p-6">
-                                    <div class="grid grid-cols-6 gap-6">
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label
-                                                for="first-name"
-                                                class="block text-sm font-medium text-gray-700"
-                                            >
-                                                Nama Lengkap Anak
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="first-name"
-                                                id="first-name"
-                                                autocomplete="given-name"
-                                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                            />
-                                        </div>
 
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label
-                                                for="last-name"
-                                                class="block text-sm font-medium text-gray-700"
-                                            >
-                                                Nama Ibu
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="last-name"
-                                                id="last-name"
-                                                autocomplete="family-name"
-                                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                            />
-                                        </div>
-
-                                        <div class="col-span-6">
-                                            <label
-                                                for="street-address"
-                                                class="block text-sm font-medium text-gray-700"
-                                            >
-                                                Alamat Rumah
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="street-address"
-                                                id="street-address"
-                                                autocomplete="street-address"
-                                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                            />
-                                        </div>
-
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label
-                                                for="city"
-                                                class="block text-sm font-medium text-gray-700"
-                                            >
-                                                Tanggal Lahir
-                                            </label>
-                                            <input
-                                                type="date"
-                                                name="birthdate"
-                                                id="birthdate"
-                                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                            />
-                                        </div>
-
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label
-                                                for="countries"
-                                                class="block  text-sm font-medium text-gray-900 dark:text-white"
-                                            >
-                                                Gender
-                                            </label>
-                                            <select
-                                                id="countries"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            >
-                                                <option selected>
-                                                    Pilih Gender
-                                                </option>
-                                                <option value="LAKI LAKI">
-                                                    LAKI LAKI
-                                                </option>
-                                                <option value="PEREMPUAN">
-                                                    PEREMPUAN
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <PrimaryButton className="w-full my-6">
-                                        Tambah
-                                    </PrimaryButton>
-                                </div>
-                            </div>
-                        </form>
+                    <div class="relative overflow-x-auto  sm:rounded-lg">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <thead class="text-sm text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th
+                                        scope="col"
+                                        class="px-6 py-6 text-center"
+                                    >
+                                        Tinggi Badan
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-6 py-6 text-center"
+                                    >
+                                        Berat Badan{" "}
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-6 py-6 text-center"
+                                    >
+                                        Lingkar Kepala{" "}
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-6 py-6 text-center"
+                                    >
+                                        Status Gizi{" "}
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-6 py-6 text-center"
+                                    >
+                                        Tanggal
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-6 py-6  text-center"
+                                    >
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {growthData
+                                    ? growthData.map((index) => {
+                                          return (
+                                              <tr class="bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
+                                                  <td class="px-6 py-4 text-center">
+                                                      {index.height} cm
+                                                  </td>
+                                                  <td class="px-6 py-4 text-center">
+                                                      {index.weight} kg
+                                                  </td>
+                                                  <td class="px-6 py-4 text-center">
+                                                      {index.head_circum} cm
+                                                  </td>
+                                                  <td class="px-6 py-4 text-center">
+                                                      <span class="bg-blue-100 text-blue-800 text-md font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-2">
+                                                          {index.status}
+                                                      </span>
+                                                  </td>
+                                                  <td class="px-6 py-4 text-center">
+                                                      {index.date}
+                                                  </td>
+                                                  <td class="px-6 py-4 text-center">
+                                                  
+                                                <Delete
+                                                    URL={"/hapus-data-pertumbuhan"}
+                                                    id={index.id}
+                                                />
+                                                  </td>
+                                              </tr>
+                                          );
+                                      })
+                                    : "Belum ada Data Saat ini"}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
+
+                <div className="block mt-12 p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 ">
+                    <div class="md:grid md:grid-cols-3 md:gap-6">
+                        <div class="md:col-span-1">
+                            <div class="px-4 sm:px-0">
+                                <h3 class="text-lg font-medium leading-6 text-gray-900">
+                                    Riwayat Pertumbuhan Anak
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-600">
+                                    Diupdate setiap kali datang ke posyandu
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-5 md:col-span-2 md:mt-0">
+                            <form onSubmit={handleSubmit}>
+                                <div class="overflow-hidden shadow sm:rounded-md">
+                                    <div class="bg-white px-4 py-5 sm:p-6">
+                                        <div class="grid grid-cols-6 gap-6">
+                                            <div class="col-span-6 sm:col-span-2">
+                                                <label
+                                                    for="height"
+                                                    class="block text-sm font-medium text-gray-700"
+                                                >
+                                                    Tinggi Badan{" "}
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    name="height"
+                                                    id="height"
+                                                    autocomplete="given-name"
+                                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    onChange={(height) =>
+                                                        setHeight(
+                                                            height.target.value
+                                                        )
+                                                    }
+                                                    value={height}
+                                                />
+                                            </div>
+
+                                            <div class="col-span-6 sm:col-span-2">
+                                                <label
+                                                    for="weight"
+                                                    class="block text-sm font-medium text-gray-700"
+                                                >
+                                                    Berat Badan{" "}
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    name="weight"
+                                                    id="weight"
+                                                    autocomplete="family-name"
+                                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    onChange={(weight) =>
+                                                        setWeight(
+                                                            weight.target.value
+                                                        )
+                                                    }
+                                                    value={weight}
+                                                />
+                                            </div>
+
+                                            <div class="col-span-6 sm:col-span-2">
+                                                <label
+                                                    for="head_circum"
+                                                    class="block text-sm font-medium text-gray-700"
+                                                >
+                                                    Lingkar Kepala{" "}
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    name="head_circum"
+                                                    onChange={(head_circum) =>
+                                                        setHead_circum(
+                                                            head_circum.target
+                                                                .value
+                                                        )
+                                                    }
+                                                    value={head_circum}
+                                                    id="head_circum"
+                                                    autocomplete="street-address"
+                                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                />
+                                            </div>
+                                            <div class="col-span-6 sm:col-span-3">
+                                                <label
+                                                    for="status"
+                                                    class="block  text-sm font-medium text-gray-900 dark:text-white"
+                                                >
+                                                    Status Gizi
+                                                </label>
+
+                                                <select
+                                                    id="status"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    onChange={(status) =>
+                                                        setStatus(
+                                                            status.target.value
+                                                        )
+                                                    }
+                                                    value={status}
+                                                >
+                                                    <option selected>
+                                                        Pilih Status Gizi
+                                                    </option>
+                                                    <option value=" Gizi Buruk">
+                                                        Gizi Buruk
+                                                    </option>
+                                                    <option value="Gizi Kurang">
+                                                        Gizi Kurang
+                                                    </option>
+                                                    <option value="Gizi Baik">
+                                                        Gizi Baik
+                                                    </option>
+                                                    <option value=" Risiko Gizi Lebih">
+                                                        Risiko Gizi Lebih
+                                                    </option>
+                                                    <option value="Gizi Lebih">
+                                                        Gizi Lebih
+                                                    </option>
+                                                    <option value="Obesitas">
+                                                        Obesitas
+                                                    </option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-span-6 sm:col-span-3">
+                                                <label
+                                                    for="date"
+                                                    class="block text-sm font-medium text-gray-700"
+                                                >
+                                                    Tanggal{" "}
+                                                </label>
+                                                <input
+                                                    type="date"
+                                                    name="birthdate"
+                                                    id="date"
+                                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    onChange={(date) =>
+                                                        setDate(
+                                                            date.target.value
+                                                        )
+                                                    }
+                                                    value={date}
+                                                />
+                                            </div>
+                                        </div>
+                                        <PrimaryButton
+                                            // type="submit"
+                                            className="w-full my-6"
+                                        >
+                                            Tambah
+                                        </PrimaryButton>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
             <Footer />
         </>

@@ -13,7 +13,7 @@ class Immunization extends Model
         'id'
     ];
 
-    public function user(){
+    public function children(){
         return $this->belongsTo(Children::class);
     }
 

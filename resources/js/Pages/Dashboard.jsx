@@ -3,8 +3,8 @@ import { Head } from "@inertiajs/inertia-react";
 import PrimaryButton from "@/Components/PrimaryButton";
 import Navbar from "@/Layouts/Authenticated/Navbar";
 import Footer from "@/Layouts/Authenticated/Footer";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut, PolarArea} from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, } from "chart.js";
+import { Doughnut, } from "react-chartjs-2";
 // import PolarAreaChart from "@/Components/PolarAreaChart";
 
 ChartJS.register(ArcElement, Tooltip, Legend);

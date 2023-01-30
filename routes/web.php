@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDataController;
 use App\Http\Controllers\ChildDataController;
+use App\Http\Controllers\GrowthDataController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,31 +30,19 @@ Route::get('/data-user', [UserDataController::class, 'index'])->middleware(['aut
 Route::delete('/hapus-user/{id}', [UserDataController::class, 'delete'])->middleware(['auth'])->name('delete-user');
 
 Route::get('/data-anak', [ChildDataController::class, 'index'])->middleware(['auth'])->name('child-data');
-Route::get('/data-pertumbuhan/{id}', [ChildDataController::class, 'detail'])->middleware(['auth'])->name('growth-data');
-// Route::get('/data-anak', function () {
-//     return Inertia::render('ChildData');
-// })->middleware(['auth', 'verified', 'role:admin'])->name('child-data');
+Route::get('/data-pertumbuhan/{id}', [GrowthDataController::class, 'index'])->middleware(['auth'])->name('growth-data');
+Route::post('/tambah-data-pertumbuhan', [GrowthDataController::class, 'store'])->middleware(['auth'])->name('store-growth-data');
+Route::delete('/hapus-data-pertumbuhan/{id}', [GrowthDataController::class, 'destroy'])->middleware(['auth'])->name('delete-growth-data');
 
-Route::get('/artikel', function () {
-    return Inertia::render('Articles');
-})->middleware(['auth', 'verified', 'role:admin'])->name('articles');
 
-Route::get('/tambah-artikel', function () {
-    return Inertia::render('AddArticle');
-})->middleware(['auth', 'verified', 'role:admin'])->name('add-article');
+Route::get('/artikel', [ArticleController::class, 'index'])->middleware('auth')->name('articles');
+Route::get('/tambah-artikel', [ArticleController::class, 'create'])->middleware(['auth', 'verified', 'role:admin'])->name('add-article');
 
-// Route::get('/tambah-anak', function () {
-//     return Inertia::render('AddChild');
-// })->middleware(['auth', 'verified', 'role:admin'])->name('add-child');
-
-//DETAIL CHILD PAGE
+//DETAIL ADD CHILD PAGE
 Route::get('/tambah-anak/{id}', [UserDataController::class, 'detail'])->middleware(['auth'])->name('add-child');
 Route::post('/tambah-anak', [UserDataController::class, 'store'])->middleware(['auth'])->name('store-child');
 Route::delete('/hapus-anak/{id}', [UserDataController::class, 'destroy'])->middleware(['auth'])->name('delete-child');
 
-Route::get('/data-pertumbuhan', function () {
-    return Inertia::render('GrowthData');
-})->middleware(['auth', 'verified', 'role:admin'])->name('growth-data');
 
 Route::get('register', function () {
     return Inertia::render('Register');

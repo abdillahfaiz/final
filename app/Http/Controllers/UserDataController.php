@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Children;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 
 class UserDataController extends Controller
@@ -17,6 +19,10 @@ class UserDataController extends Controller
     public function index()
     {
         $user = User::where('id', '!=', '1')->get();
+        // foreach($user as $key=>$val) {
+        //     // Log::info($val->created_at);
+        //     $user->created_at[$key] = Carbon::parse($val->created_at)->locale('id')->isoFormat('DD, MM YYYYY');
+        // }
         return Inertia::render('UserData', ['user' => $user]);
     }
 

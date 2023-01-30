@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Children;
-use App\Models\GrowthData;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class ChildDataController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class ChildDataController extends Controller
      */
     public function index()
     {
-        $children = Children::all();
-        return Inertia::render('ChildData', ['children' => $children]);
+        // $article = Article::all();
+        return Inertia::render('Articles');
     }
 
     /**
@@ -27,7 +26,7 @@ class ChildDataController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('AddArticle');
     }
 
     /**
@@ -36,9 +35,28 @@ class ChildDataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,)
+    public function store(Request $request)
     {
-       
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'creator' => 'required',
+            'category' => 'required',
+            'content' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg',
+
+        ]);
+
+        Article::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'creator' => $request->creator,
+            'category' => $request->category,
+            'content' => $request->content,
+            'image' => $request->image,
+        ]);
+
+        // return redirect()->route('article')
     }
 
     /**
@@ -47,7 +65,11 @@ class ChildDataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
- 
+    public function show($id)
+    {
+        //
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -68,6 +90,7 @@ class ChildDataController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //
     }
 
     /**

@@ -8,11 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class GrowthData extends Model
 {
     use HasFactory;
-    protected $guarded = [
-        'id'
+    protected $fillable = [
+        'height',
+        'weight',
+        'head_circum',
+        'status',
+        'date',
+        'children_id',
     ];
 
-    public function user(){
+    public function children(){
         return $this->belongsTo(Children::class);
     }
 }

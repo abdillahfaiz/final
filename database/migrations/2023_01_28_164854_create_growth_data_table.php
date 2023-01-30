@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('growth_data', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('children_id')->references('id')->on('chiildrens')->cascadeOnDelete();
-            $table->integer('height');
-            $table->integer('weight');
-            $table->integer('head_circum');
-            $table->string('date');
+            $table->foreignId('children_id')->references('id')->on('childrens')->cascadeOnDelete();
+            $table->integer('height')->nullable();
+            $table->integer('weight')->nullable();
+            $table->integer('head_circum')->nullable();
+            $table->enum('status', ['Gizi Buruk', 'Gizi Kurang', 'Gizi Baik', 'Risiko Gizi Lebih', 'Gizi Lebih', 'Obesitas']);
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }

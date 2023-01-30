@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('image');
             $table->string('creator');
+            $table->string('category');
             $table->longText('content');
+            $table->string('image');
             $table->timestamps();
         });
     }
