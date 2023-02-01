@@ -313,7 +313,6 @@ export default function GrowthData({ children, growthData }) {
                                             </div>
                                         </div>
                                         <PrimaryButton
-                                            // type="submit"
                                             className="w-full my-6"
                                         >
                                             Tambah

@@ -6,8 +6,10 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDataController;
 use App\Http\Controllers\ChildDataController;
 use App\Http\Controllers\GrowthDataController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use Inertia\Inertia;
 
 /*
@@ -23,7 +25,13 @@ use Inertia\Inertia;
 
 Route::redirect('/', 'login');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+// Route::middleware('auth', 'role:user')->name('user')->group(function (){
+//     Route::get('/', [HomeController::class, 'index'])->name('user.home');
+// });
+
+Route::get('/dashboard-user', [UserDashboardController::class, 'index'])->middleware(['auth', 'role:user'])->name('home');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth','role:admin'])->name('dashboard');
+// Route::get('/dashboard-user', [HomeController::class, 'index'])->middleware(['auth', 'role:user'])->name('dashboard-user');
 
 //DATA USER PAGE
 Route::get('/data-user', [UserDataController::class, 'index'])->middleware(['auth'])->name('user-data');
@@ -37,11 +45,13 @@ Route::delete('/hapus-data-pertumbuhan/{id}', [GrowthDataController::class, 'des
 
 Route::get('/artikel', [ArticleController::class, 'index'])->middleware('auth')->name('articles');
 Route::get('/tambah-artikel', [ArticleController::class, 'create'])->middleware(['auth', 'verified', 'role:admin'])->name('add-article');
+Route::post('/store-artikel', [ArticleController::class, 'store'])->middleware(['auth', 'verified', 'role:admin'])->name('store-article');
 
 //DETAIL ADD CHILD PAGE
 Route::get('/tambah-anak/{id}', [UserDataController::class, 'detail'])->middleware(['auth'])->name('add-child');
 Route::post('/tambah-anak', [UserDataController::class, 'store'])->middleware(['auth'])->name('store-child');
 Route::delete('/hapus-anak/{id}', [UserDataController::class, 'destroy'])->middleware(['auth'])->name('delete-child');
+
 
 
 Route::get('register', function () {

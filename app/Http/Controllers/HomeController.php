@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-use App\Models\Article;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class ArticleController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        // $article = Article::all();
-        return Inertia::render('Articles');
+        return Inertia::render('Home');
     }
 
     /**
@@ -26,7 +25,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return Inertia::render('AddArticle');
+        //
     }
 
     /**
@@ -37,29 +36,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'creator' => 'required',
-            'category' => 'required',
-            'content' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg',
-
-        ]);
-
-        $image = $request->file('image');
-        $image->storeAs('public/blogs', $image->hashName());
-
-        Article::create([
-            'title'         => $request->title,
-            'description'   => $request->description,
-            'creator'       => $request->creator,
-            'category'      => $request->category,
-            'content'       => $request->content,
-            'image'         => $image->hashName(),
-        ]);
-
-        return redirect()->route('artikel');
+        //
     }
 
     /**
