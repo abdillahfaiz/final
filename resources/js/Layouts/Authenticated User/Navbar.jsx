@@ -9,12 +9,12 @@ export default function Navbar({ auth, header, children }) {
         useState(false);
 
     {
-        
+
     }
     return (
         <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
             <div className="container flex flex-wrap items-center justify-between mx-auto">
-            <a href={route("dashboard")} className="flex items-center">
+                <a href={route("dashboard")} className="flex items-center">
                     <img
                         src="https://1.bp.blogspot.com/-vNcUzj8YRPo/YNaCWN7kmLI/AAAAAAAAFaE/Q0YIFTjsM-kDUxl8VXWNHN86WZtELt8MwCLcBGAsYHQ/s1600/Logo%2BPosyandu.png"
                         className="h-12 mr-3 sm:h-16"
@@ -63,12 +63,13 @@ export default function Navbar({ auth, header, children }) {
                                 </a>
                             </li>
                             <li>
-                                <NavLink
+                                <ResponsiveNavLink
+                                    method="post"
                                     href={route("logout")}
-                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                    as="button"
                                 >
-                                    Sign out
-                                </NavLink>
+                                    Log Out
+                                </ResponsiveNavLink>
                             </li>
                         </ul>
                     </div>
