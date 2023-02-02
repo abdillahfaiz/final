@@ -14,6 +14,7 @@
         <!-- Scripts -->
         <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/flowbite.min.js"></script>
+
         {{-- <!-- tailwind CDN -->
         <script src="https://cdn.tailwindcss.com"></script> --}}
         <!-- Alpine Js CDN -->

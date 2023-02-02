@@ -1,8 +1,8 @@
 import React, {  useState } from "react";
 import { Inertia } from '@inertiajs/inertia';
 import { Head } from "@inertiajs/inertia-react";
-import Navbar from "@/Layouts/Authenticated/Navbar";
-import Footer from "@/Layouts/Authenticated/Footer";
+import Navbar from "@/Layouts/Authenticated Admin/Navbar";
+import Footer from "@/Layouts/Authenticated Admin/Footer";
 import PrimaryButton from "@/Components/PrimaryButton";
 
 export default function AddArticle() {

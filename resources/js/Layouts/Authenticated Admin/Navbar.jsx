@@ -30,11 +30,11 @@ export default function Navbar({ auth, header, children }) {
                         Log Out
                     </ResponsiveNavLink>
                     {/* <button
-                        type="button"
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-snone focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    >
-                        Log Out
-                    </button> */}
+                                type="button"
+                                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-snone focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            >
+                                Log Out
+                            </button> */}
                     <button
                         data-collapse-toggle="navbar-sticky"
                         type="button"
@@ -62,21 +62,38 @@ export default function Navbar({ auth, header, children }) {
                     className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
                     id="navbar-sticky"
                 >
-
-                        
-                    
                     <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
-                            <NavLink href={route('dashboard')} active={route().current('dashboard')}>Beranda</NavLink>
+                            <NavLink
+                                href={route("dashboard")}
+                                active={route().current("dashboard")}
+                            >
+                                Beranda
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink href={route('user-data')} active={route().current('user-data')}>Data User</NavLink>
+                            <NavLink
+                                href={route("user-data")}
+                                active={route().current("user-data")}
+                            >
+                                Data User
+                            </NavLink>
                         </li>
                         <li>
-                                <NavLink href={route('child-data')} active={route().current('child-data')}>Data Anak</NavLink>
+                            <NavLink
+                                href={route("child-data")}
+                                active={route().current("child-data")}
+                            >
+                                Data Anak
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink href={route('articles')} active={route().current('articles')}>Artikel</NavLink>
+                            <NavLink
+                                href={route("articles")}
+                                active={route().current("articles")}
+                            >
+                                Artikel
+                            </NavLink>
                         </li>
                     </ul>
                 </div>

@@ -1,11 +1,10 @@
 import React from "react";
 import { Head } from "@inertiajs/inertia-react";
 import PrimaryButton from "@/Components/PrimaryButton";
-import Navbar from "@/Layouts/Authenticated/Navbar";
-import Footer from "@/Layouts/Authenticated/Footer";
+import Navbar from "@/Layouts/Authenticated Admin/Navbar";
+import Footer from "@/Layouts/Authenticated Admin/Footer";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, } from "chart.js";
 import { Doughnut, } from "react-chartjs-2";
-// import PolarAreaChart from "@/Components/PolarAreaChart";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -46,7 +45,7 @@ export default function Dashboard({ auth, children, male, female, user }) {
                     <p className="mb-12 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
                         Dibuat dan dikembangkan agar mempermudah input data perkembangan anak setiap bulan bagi kader posyandu setempat dan membantu para ibu untuk mempermudah dalam monitoring perkembangan anak nya
                     </p>
-                    <p><span class="bg-blue-100 text-blue-800 text-xl font-semibold  px-2.5 py-0.5 rounded">Total User : {user}</span></p>
+                    <p><span className="bg-blue-100 text-blue-800 text-xl font-semibold  px-2.5 py-0.5 rounded">Total User : {user}</span></p>
                 </div>
 
                 <div>

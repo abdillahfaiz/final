@@ -30,7 +30,7 @@ Route::redirect('/', 'login');
 // });
 
 Route::get('/dashboard-user', [UserDashboardController::class, 'index'])->middleware(['auth', 'role:user'])->name('home');
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth','role:admin'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'role:admin'])->name('dashboard');
 // Route::get('/dashboard-user', [HomeController::class, 'index'])->middleware(['auth', 'role:user'])->name('dashboard-user');
 
 //DATA USER PAGE

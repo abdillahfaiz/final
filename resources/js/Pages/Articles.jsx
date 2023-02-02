@@ -1,7 +1,7 @@
 import React from "react";
 import FourthyButton from "@/Components/FourthyButton";
-import Footer from "@/Layouts/Authenticated/Footer";
-import Navbar from "@/Layouts/Authenticated/Navbar";
+import Footer from "@/Layouts/Authenticated Admin/Footer";
+import Navbar from "@/Layouts/Authenticated Admin/Navbar";
 import { Icon } from "@iconify/react";
 import ThirdyButton from "@/Components/ThirdyButton";
 import { Head, Link } from "@inertiajs/inertia-react";
@@ -29,7 +29,7 @@ export default function Articles() {
                             />
                         </a>
                         <div className="p-5">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                            <span className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
                                 Makanan
                             </span>
 
@@ -53,7 +53,7 @@ export default function Articles() {
                             />
                         </a>
                         <div className="p-5">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                            <span className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
                                 Makanan
                             </span>
 
@@ -77,7 +77,7 @@ export default function Articles() {
                             />
                         </a>
                         <div className="p-5">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                            <span className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
                                 Makanan
                             </span>
 
@@ -101,7 +101,7 @@ export default function Articles() {
                             />
                         </a>
                         <div className="p-5">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                            <span className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
                                 Makanan
                             </span>
 
