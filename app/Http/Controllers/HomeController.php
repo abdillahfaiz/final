@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Children;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -13,9 +15,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return Inertia::render('Home');
+        $user = User::find($id);
+        $data = Children::with(['user'])->where('user_id', $user->id)->get();
+        return Inertia::render('Home', ['data' => $data]);
     }
 
     /**
