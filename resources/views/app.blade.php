@@ -13,10 +13,11 @@
 
         <!-- Scripts -->
         <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/flowbite.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+
 
         {{-- <!-- tailwind CDN -->
-        <script src="https://cdn.tailwindcss.com"></script> --}}
+        <script sr  c="https://cdn.tailwindcss.com"></script> --}}
         <!-- Alpine Js CDN -->
         <script defer src="https://unpkg.com/alpinejs@3.9.1/dist/cdn.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -31,5 +32,6 @@
     </head>
     <body class="font-sans antialiased"  style="background-color: #fafafa;">
         @inertia
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     </body>
 </html>

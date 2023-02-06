@@ -1,16 +1,15 @@
 import { useEffect } from "react";
-import Checkbox from "@/Components/Checkbox";
+import { Head, Link, useForm } from "@inertiajs/inertia-react";
+import ApplicationLogo from "@/Components/ApplicationLogo";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
-import { Head, Link, useForm } from "@inertiajs/inertia-react";
 
-export default function Login({ status, canResetPassword }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
+export default function Login({ status}) {
+    const { data, setData, post, processing, errors} = useForm({
         email: "",
         password: "",
-        remember: "",
     });
 
     const onHandleChange = (event) => {
@@ -47,11 +46,7 @@ export default function Login({ status, canResetPassword }) {
                                     Selamat Datang di MyPosyandu Monitoring System Information
                                 </p>
                             </div>
-                            <img
-                                src="https://1.bp.blogspot.com/-vNcUzj8YRPo/YNaCWN7kmLI/AAAAAAAAFaE/Q0YIFTjsM-kDUxl8VXWNHN86WZtELt8MwCLcBGAsYHQ/s1600/Logo%2BPosyandu.png"
-                                className="w-1/2 m-auto"
-                                alt="Logo Posyandu"
-                            />
+                            <ApplicationLogo className={"w-1/2 m-auto"}/>
                         </div>
                         <div className="xl:ml-20 xl:w-4/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
                             <form onSubmit={submit}>
@@ -104,27 +99,6 @@ export default function Login({ status, canResetPassword }) {
                                         message={errors.password}
                                         className="mt-2"
                                     />
-                                </div>
-
-                                <div className="flex justify-between items-center mb-6">
-                                    <label className="flex items-center">
-                                        <Checkbox
-                                            name="remember"
-                                            value={data.remember}
-                                            handleChange={onHandleChange}
-                                        />
-                                        <span className="ml-2 text-sm text-gray-600">
-                                            Remember me
-                                        </span>
-                                    </label>
-                                    {canResetPassword && (
-                                        <Link
-                                            href={route("password.request")}
-                                            className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                        >
-                                            Forgot your password?
-                                        </Link>
-                                    )}
                                 </div>
 
                                 <div className="text-center lg:text-left">

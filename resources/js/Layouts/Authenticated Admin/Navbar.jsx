@@ -1,22 +1,13 @@
-import { useState } from "react";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
-import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
-import { Link } from "@inertiajs/inertia-react";
+import ApplicationLogo from "@/Components/ApplicationLogo";
 
-export default function Navbar({ auth, header, children }) {
-    const [showingNavigationDropdown, setShowingNavigationDropdown] =
-        useState(false);
-
+export default function Navbar() {
     return (
         <nav className="flex justify-between bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
             <div className="container flex flex-wrap items-center justify-between mx-auto">
                 <a href={route("dashboard")} className="flex items-center">
-                    <img
-                        src="https://1.bp.blogspot.com/-vNcUzj8YRPo/YNaCWN7kmLI/AAAAAAAAFaE/Q0YIFTjsM-kDUxl8VXWNHN86WZtELt8MwCLcBGAsYHQ/s1600/Logo%2BPosyandu.png"
-                        className="h-12 mr-3 sm:h-16"
-                        alt="Posyandu Logo"
-                    />
+                    <ApplicationLogo className={"h-12 mr-3 sm:h-16"}/>
                     <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-black">
                         MyPosyandu
                     </span>
@@ -29,12 +20,6 @@ export default function Navbar({ auth, header, children }) {
                     >
                         Log Out
                     </ResponsiveNavLink>
-                    {/* <button
-                                type="button"
-                                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-snone focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                            >
-                                Log Out
-                            </button> */}
                     <button
                         data-collapse-toggle="navbar-sticky"
                         type="button"
@@ -81,6 +66,7 @@ export default function Navbar({ auth, header, children }) {
                         </li>
                         <li>
                             <NavLink
+                            
                                 href={route("child-data")}
                                 active={route().current("child-data")}
                             >

@@ -19,6 +19,7 @@ class HomeController extends Controller
     {
         $user = User::find($id);
         $data = Children::with(['user'])->where('user_id', $user->id)->get();
+        dd($data);
         return Inertia::render('Home', ['data' => $data]);
     }
 

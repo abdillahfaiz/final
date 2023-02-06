@@ -37,10 +37,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 Route::get('/data-user', [UserDataController::class, 'index'])->middleware(['auth'])->name('user-data');
 Route::delete('/hapus-user/{id}', [UserDataController::class, 'delete'])->middleware(['auth'])->name('delete-user');
 
-Route::get('/data-anak', [ChildDataController::class, 'index'])->middleware(['auth'])->name('child-data');
-Route::get('/data-pertumbuhan/{id}', [GrowthDataController::class, 'index'])->middleware(['auth'])->name('growth-data');
-Route::post('/tambah-data-pertumbuhan', [GrowthDataController::class, 'store'])->middleware(['auth'])->name('store-growth-data');
-Route::delete('/hapus-data-pertumbuhan/{id}', [GrowthDataController::class, 'destroy'])->middleware(['auth'])->name('delete-growth-data');
+Route::get('/data-anak', [ChildDataController::class, 'index'])->middleware(['auth', 'role:admin'])->name('child-data');
+Route::get('/data-pertumbuhan/{id}', [GrowthDataController::class, 'index'])->middleware(['auth', 'role:admin'])->name('growth-data');
+Route::post('/tambah-data-pertumbuhan', [GrowthDataController::class, 'store'])->middleware(['auth', 'role:admin'])->name('store-growth-data');
+Route::delete('/hapus-data-pertumbuhan/{id}', [GrowthDataController::class, 'destroy'])->middleware(['auth', 'role:admin'])->name('delete-growth-data');
 
 
 Route::get('/artikel', [ArticleController::class, 'index'])->middleware('auth')->name('articles');

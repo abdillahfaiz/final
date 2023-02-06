@@ -51,7 +51,8 @@ export default function UserData({ user }) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {user.map((index) => {
+                                {
+                                user != 0 ? user.map((index) => {
                                     return (
                                         <tr className="bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
                                             <th
@@ -81,7 +82,7 @@ export default function UserData({ user }) {
                                             </td>
                                         </tr>
                                     );
-                                })}
+                                }) : <td>Belum ada Data</td>}
                             </tbody>
                         </table>
                     </div>

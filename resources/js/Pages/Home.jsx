@@ -9,14 +9,18 @@ import { Icon } from "@iconify/react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function DashboardUser({ auth, data }) {
-    console.log(data)
+export default function DashboardUser({ auth, children, growthData }) {
+    console.log(children)
+    console.log(growthData);
     return (
         <>
             <Head title="Dashboard User" />
             <Navbar />
+            {
+                growthData.map
+            }
             <div
-                class="mx-12 mt-4 flex p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600"
+                className="mx-12 mt-4 flex p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600"
                 role="alert"
             >
                 <div className="mx-2 mt-1">
@@ -39,14 +43,14 @@ export default function DashboardUser({ auth, data }) {
                                         fill="currentColor"
                                     >
                                         <path
-                                            fill-rule="evenodd"
+                                            fillRule="evenodd"
                                             d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd"
+                                            clipRule="evenodd"
                                         />
                                         <path
-                                            fill-rule="evenodd"
+                                            fillRule="evenodd"
                                             d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd"
+                                            clipRule="evenodd"
                                         />
                                     </svg>
                                 </div>
@@ -57,18 +61,19 @@ export default function DashboardUser({ auth, data }) {
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
-                                        stroke-width="2"
+                                        strokeWidth="2"
                                     >
                                         <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
                                             d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
                                         />
                                     </svg>
+                                    {growthData.date}
                                 </div>
                             </div>
                             <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-gray-700 mt-12 group-hover:text-gray-50">
-                                42.34%
+                                {growthData.height} cm
                             </h1>
                             <div className="flex flex-row justify-between group-hover:text-gray-200">
                                 <p>Tinggi Badan</p>
@@ -80,9 +85,9 @@ export default function DashboardUser({ auth, data }) {
                                         fill="currentColor"
                                     >
                                         <path
-                                            fill-rule="evenodd"
+                                            fillRule="evenodd"
                                             d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                                            clip-rule="evenodd"
+                                            clipRule="evenodd"
                                         />
                                     </svg>
                                 </span>
@@ -109,19 +114,19 @@ export default function DashboardUser({ auth, data }) {
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
-                                        stroke-width="2"
+                                        strokeWidth="2"
                                     >
                                         <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
                                             d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
                                         />
                                     </svg>
-                                    12%
+                                    {growthData.date}
                                 </div>
                             </div>
                             <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-gray-700 mt-12 group-hover:text-gray-50">
-                                42.34%
+                                {growthData.weight} kg
                             </h1>
                             <div className="flex flex-row justify-between group-hover:text-gray-200">
                                 <p>Berat Badan</p>
@@ -133,9 +138,9 @@ export default function DashboardUser({ auth, data }) {
                                         fill="currentColor"
                                     >
                                         <path
-                                            fill-rule="evenodd"
+                                            fillRule="evenodd"
                                             d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                                            clip-rule="evenodd"
+                                            clipRule="evenodd"
                                         />
                                     </svg>
                                 </span>
@@ -154,9 +159,9 @@ export default function DashboardUser({ auth, data }) {
                                     >
                                         <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                                         <path
-                                            fill-rule="evenodd"
+                                            fillRule="evenodd"
                                             d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
-                                            clip-rule="evenodd"
+                                            clipRule="evenodd"
                                         />
                                     </svg>
                                 </div>
@@ -167,19 +172,19 @@ export default function DashboardUser({ auth, data }) {
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
-                                        stroke-width="2"
+                                        strokeWidth="2"
                                     >
                                         <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
                                             d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
                                         />
                                     </svg>
-                                    12%
+                                    {growthData.date    }
                                 </div>
                             </div>
                             <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-gray-700 mt-12 group-hover:text-gray-50">
-                                42.34k
+                                {growthData.head_circum} cm
                             </h1>
                             <div className="flex flex-row justify-between group-hover:text-gray-200">
                                 <p>Lingkar Kepala</p>
@@ -191,9 +196,9 @@ export default function DashboardUser({ auth, data }) {
                                         fill="currentColor"
                                     >
                                         <path
-                                            fill-rule="evenodd"
+                                            fillRule="evenodd"
                                             d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                                            clip-rule="evenodd"
+                                            clipRule="evenodd"
                                         />
                                     </svg>
                                 </span>
@@ -211,9 +216,9 @@ export default function DashboardUser({ auth, data }) {
                                         fill="currentColor"
                                     >
                                         <path
-                                            fill-rule="evenodd"
+                                            fillRule="evenodd"
                                             d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                            clip-rule="evenodd"
+                                            clipRule="evenodd"
                                         />
                                     </svg>
                                 </div>
@@ -224,22 +229,22 @@ export default function DashboardUser({ auth, data }) {
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
-                                        stroke-width="2"
+                                        strokeWidth="2"
                                     >
                                         <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
                                             d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
                                         />
                                     </svg>
-                                    12%
+                                    {growthData.date}
                                 </div>
                             </div>
                             <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-gray-700 mt-12 group-hover:text-gray-50">
-                                00:03:20%
+                                {growthData.status}
                             </h1>
                             <div className="flex flex-row justify-between group-hover:text-gray-200">
-                                <p>Avg. Visit Duration</p>
+                                <p className="text-green">Status Gizi  </p>
                                 <span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -248,9 +253,9 @@ export default function DashboardUser({ auth, data }) {
                                         fill="currentColor"
                                     >
                                         <path
-                                            fill-rule="evenodd"
+                                            fillRule="evenodd"
                                             d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                                            clip-rule="evenodd"
+                                            clipRule="evenodd"
                                         />
                                     </svg>
                                 </span>

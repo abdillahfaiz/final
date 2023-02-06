@@ -1,9 +1,10 @@
 import { useEffect } from "react";
+import { Head, Link, useForm } from "@inertiajs/inertia-react";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
-import { Head, Link, useForm } from "@inertiajs/inertia-react";
+import ApplicationLogo from "@/Components/ApplicationLogo";
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -37,16 +38,7 @@ export default function Register() {
 
             <section className="bg-gray-50 dark:bg-gray-900">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                    <a
-                        href="#"
-                        className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
-                    >
-                        <img
-                            className="w-28"
-                            src="https://1.bp.blogspot.com/-vNcUzj8YRPo/YNaCWN7kmLI/AAAAAAAAFaE/Q0YIFTjsM-kDUxl8VXWNHN86WZtELt8MwCLcBGAsYHQ/s1600/Logo%2BPosyandu.png"
-                            alt="logo"
-                        />
-                    </a>
+                    <ApplicationLogo className={"w-28 pt-20"}/>
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
