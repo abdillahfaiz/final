@@ -1,10 +1,8 @@
 import React from "react";
-import FourthyButton from "@/Components/FourthyButton";
 import Footer from "@/Layouts/Authenticated Admin/Footer";
 import Navbar from "@/Layouts/Authenticated Admin/Navbar";
-import { Icon } from "@iconify/react";
 import ThirdyButton from "@/Components/ThirdyButton";
-import { Head, Link } from "@inertiajs/inertia-react";
+import { Head } from "@inertiajs/inertia-react";
 
 export default function Articles() {
     return (

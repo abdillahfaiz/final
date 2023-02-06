@@ -16,13 +16,16 @@ class UserDataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $user = User::where('id', '!=', '1')->get();
-        // foreach($user as $key=>$val) {
-        //     // Log::info($val->created_at);
-        //     $user->created_at[$key] = Carbon::parse($val->created_at)->locale('id')->isoFormat('DD, MM YYYYY');
+        // if($request->search){
+        //     // $search = $request->get('search');
+        //     $user = User::where('name', 'like', '%' . request("search") . '%');
+        // }else{
+        //     $user = User::all();
         // }
+        // $user = User::search(request('search'));
+        $user = User::where('id', '!=', '1')->get();
         return Inertia::render('UserData', ['user' => $user]);
     }
 

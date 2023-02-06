@@ -197,9 +197,8 @@ export default function AddArticle() {
                                                                 id="image"
                                                                 className="rounded-lg border-solid border-2 border-gray-200 my-6"
                                                                 onChange={(image) =>
-                                                                    setImage(image.target.value)
-                                                                }
-                                                                value={image} 
+                                                                    setImage(image.target.files[0])
+                                                                } 
                                                             />
                                                         </label>
                                                     </div>

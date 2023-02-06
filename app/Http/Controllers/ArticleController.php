@@ -37,6 +37,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -59,7 +60,7 @@ class ArticleController extends Controller
             'image'         => $image->hashName(),
         ]);
 
-        return redirect()->route('artikel');
+        return redirect()->route('articles');
     }
 
     /**

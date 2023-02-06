@@ -96,7 +96,7 @@ export default function Navbar({ auth, header, children }) {
                         </svg>
                     </button>
                 </div>
-                <div
+                {/* <div
                     className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
                     id="mobile-menu-2"
                 >
@@ -115,35 +115,11 @@ export default function Navbar({ auth, header, children }) {
                                 href="#"
                                 className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                             >
-                                About
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            >
-                                Services
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            >
-                                Pricing
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            >
-                                Contact
+                                Artikel
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div> */}
             </div>
         </nav>
     );

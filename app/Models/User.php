@@ -6,12 +6,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Inertia\Inertia;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Scout\Searchable;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -47,6 +49,17 @@ class User extends Authenticatable
         return $this->hasMany(Children::class);
     }
 
+    public function searchableAs()
+    {
+        return Inertia::render('UserData');
+    }
+    
+    public function toSearchableArray()
+    {
+        return [
+            'name'     => $this->name,
+        ];
+    }
    
 
     

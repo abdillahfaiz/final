@@ -1,5 +1,3 @@
-// import FivthyButton from "@/Components/FivthyButton";
-import FourthyButton from "@/Components/FourthyButton";
 import Footer from "@/Layouts/Authenticated Admin/Footer";
 import Navbar from "@/Layouts/Authenticated Admin/Navbar";
 import ThirdyButton from "@/Components/ThirdyButton";
