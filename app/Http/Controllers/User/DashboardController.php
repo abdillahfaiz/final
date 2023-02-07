@@ -14,10 +14,10 @@ class DashboardController extends Controller
 {
     public function index(Children $children, GrowthData $growthData)
     {
-        $user = Auth::user();
         $children = Children::where('user_id', Auth::id())->get();
-        $growthData = GrowthData::where('children_id', $children[0]->id)->latest()->first();
+        foreach ($children as $child) {
+            $growthData = GrowthData::where('children_id', $child?->id)->latest()->first();
+        }
         return Inertia::render('Home', ['children' => $children, 'growthData' => $growthData]);
     }
 }
-

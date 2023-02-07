@@ -38,9 +38,9 @@ export default function Login({ status}) {
             )}
 
             <section className="h-screen">
-                <div className="px-6 h-full text-gray-800">
-                    <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-                        <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
+                <div className="px-6 h-full text-gray-800 my-10">
+                    <div className="md:flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
+                        <div className=" xl:w-6/12 lg:w-6/12 md:w-9/12 md:mb-0">
                             <div className="flex items-center">
                                 <p className="text-center text-xl font-bold mx-auto mb-4 md:text-2xl xl:text-3xl">
                                     Selamat Datang di MyPosyandu Monitoring System Information
@@ -48,12 +48,12 @@ export default function Login({ status}) {
                             </div>
                             <ApplicationLogo className={"w-1/2 m-auto"}/>
                         </div>
-                        <div className="xl:ml-20 xl:w-4/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+                        <div className="xl:ml-20 xl:w-4/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0 ">
                             <form onSubmit={submit}>
                                 <div className="h-5"></div>
 
                                 <div className="items-center justify-items-center">
-                                    <p className="text-center text-4xl font-bold  mb-7">
+                                    <p className="text-center text-2xl md:text-4xl font-bold  mb-7">
                                         Log In
                                     </p>
                                 </div>
@@ -103,7 +103,7 @@ export default function Login({ status}) {
 
                                 <div className="text-center lg:text-left">
                                     <PrimaryButton
-                                        className="w-full"
+                                        className="w-full text-sm px-5 py-2.5 "
                                         processing={processing}
                                     >
                                         Log In

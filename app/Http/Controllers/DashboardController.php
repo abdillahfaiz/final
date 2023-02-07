@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Children;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -26,5 +27,10 @@ class DashboardController extends Controller
             'female' => $female,
         ]);
         
+    }
+
+    public function article(){
+        $article = Article::all();
+        return Inertia::render('Dashboard', ['article' => $article]);
     }
 }

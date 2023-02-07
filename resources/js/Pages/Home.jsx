@@ -1,36 +1,40 @@
 import React from "react";
 import { Head } from "@inertiajs/inertia-react";
-import PrimaryButton from "@/Components/PrimaryButton";
 import Navbar from "@/Layouts/Authenticated User/Navbar";
 import Footer from "@/Layouts/Authenticated Admin/Footer";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
-import { Icon } from "@iconify/react";
+import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function DashboardUser({ auth, children, growthData }) {
+export default function DashboardUser({ auth, children, growthData}) {
     console.log(children)
     console.log(growthData);
     return (
         <>
             <Head title="Dashboard User" />
-            <Navbar />
-            {
-                growthData.map
-            }
+            <Navbar     email={auth.user.email}/>
             <div
-                className="mx-12 mt-4 flex p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600"
+                className="justify-between mx-12 mt-4 flex p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600"
                 role="alert"
             >
-                <div className="mx-2 mt-1">
-                <Icon icon="mdi:user-online" color="#1f1f1f"/>
-                </div>
+                <div className="mx-2 my-auto flex">
                 <div>
                     Hi! Welcome back {auth.user.name}
                 </div>
-            </div>
-            <div className="container items-center px-4 m-auto mt-5">
+                </div>
+                <ResponsiveNavLink
+                                    method="post"
+                                    href={route("logout")}
+                                    as="button"
+                                >
+                                    Log Out
+                                </ResponsiveNavLink>
+            </div>'
+            
+
+
+            <div className="container items-center px-4 m-auto mb-24">
                 <div className="flex flex-wrap pb-3 mx-4 md:mx-24 lg:mx-0">
                     <div className="w-full p-2 lg:w-1/4 md:w-1/2">
                         <div className="flex flex-col px-6 py-10 overflow-hidden bg-white hover:bg-gradient-to-br hover:from-purple-400 hover:via-blue-400 hover:to-blue-500 rounded-xl shadow-lg duration-300 hover:shadow-2xl group">
@@ -69,6 +73,7 @@ export default function DashboardUser({ auth, children, growthData }) {
                                             d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
                                         />
                                     </svg>
+                                   
                                     {growthData.date}
                                 </div>
                             </div>

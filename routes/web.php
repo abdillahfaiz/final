@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
+use App\Models\Article;
 use Inertia\Inertia;
 
 /*
@@ -23,10 +24,19 @@ use Inertia\Inertia;
 |
 */
 
-Route::redirect('/', 'login');
+// Route::redirect('/', 'login');
+// Route::get('register', function () {
+//     return Inertia::render('Register');
+// })->name('register');
 
+Route::get('/', function () {
+    return Inertia::render('Auth/Login', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+    ]);
+});
 // Route::middleware('auth', 'role:user')->name('user')->group(function (){
-//     Route::get('/', [HomeController::class, 'index'])->name('user.home');
+// Route::get('/', [HomeController::class, 'index'])->name('user.home');
 // });
 
 Route::get('/dashboard-user', [UserDashboardController::class, 'index'])->middleware(['auth', 'role:user'])->name('home');
@@ -42,22 +52,15 @@ Route::get('/data-pertumbuhan/{id}', [GrowthDataController::class, 'index'])->mi
 Route::post('/tambah-data-pertumbuhan', [GrowthDataController::class, 'store'])->middleware(['auth', 'role:admin'])->name('store-growth-data');
 Route::delete('/hapus-data-pertumbuhan/{id}', [GrowthDataController::class, 'destroy'])->middleware(['auth', 'role:admin'])->name('delete-growth-data');
 
-
 Route::get('/artikel', [ArticleController::class, 'index'])->middleware('auth')->name('articles');
 Route::get('/tambah-artikel', [ArticleController::class, 'create'])->middleware(['auth', 'verified', 'role:admin'])->name('add-article');
 Route::post('/store-artikel', [ArticleController::class, 'store'])->middleware(['auth', 'verified', 'role:admin'])->name('store-article');
-
+Route::delete('/hapus-artikel/{id}', [ArticleController::class, 'destroy'])->middleware(['auth', 'verified', 'role:admin'])->name('destroy-article');
+// 
 //DETAIL ADD CHILD PAGE
 Route::get('/tambah-anak/{id}', [UserDataController::class, 'detail'])->middleware(['auth'])->name('add-child');
 Route::post('/tambah-anak', [UserDataController::class, 'store'])->middleware(['auth'])->name('store-child');
 Route::delete('/hapus-anak/{id}', [UserDataController::class, 'destroy'])->middleware(['auth'])->name('delete-child');
-
-
-
-Route::get('register', function () {
-    return Inertia::render('Register');
-})->name('register');
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

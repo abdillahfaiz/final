@@ -15,8 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        // $article = Article::all();
-        return Inertia::render('Articles');
+        $article = Article::all();
+        return Inertia::render('Articles', ['article' => $article]);
     }
 
     /**
@@ -40,7 +40,7 @@ class ArticleController extends Controller
         // dd($request->all());
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'description' => 'required|max:50',
             'creator' => 'required',
             'category' => 'required',
             'content' => 'required',
@@ -103,8 +103,11 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Article $article, $id)
     {
-        //
+        $article = Article::find($id);
+        $article->delete();
+
+        return redirect()->route('articles')->with('succes','Data Berhasil Dihapus!');
     }
 }

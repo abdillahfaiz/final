@@ -143,7 +143,7 @@ export default function GrowthData({ children, growthData }) {
                                                       {index.head_circum} cm
                                                   </td>
                                                   <td className="px-6 py-4 text-center">
-                                                      <span className="bg-blue-100 text-blue-800 text-md font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-2">
+                                                      <span className="bg-blue-100 text-blue-800 text-md font-semibold mr-2 px-2.5 py-0.5 rounded ">
                                                           {index.status}
                                                       </span>
                                                   </td>

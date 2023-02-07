@@ -200,6 +200,8 @@ export default function AddArticle() {
                                                                     setImage(image.target.files[0])
                                                                 } 
                                                             />
+                                                <p>Edit dan Pastikan terlebih dahulu bahwa ukuran gambar 4 : 3</p>
+
                                                         </label>
                                                     </div>
                                                 </div>

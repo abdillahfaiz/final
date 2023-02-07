@@ -135,7 +135,7 @@ export default function UserData({ user }) {
                                         );
                                     })
                                 ) : (
-                                    <td>Belum ada Data</td>
+                                    <tr><td>Belum ada Data tersedia</td></tr>
                                 )}
                             </tbody>
                         </table>
