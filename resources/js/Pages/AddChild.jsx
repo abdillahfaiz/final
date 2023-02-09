@@ -7,7 +7,7 @@ import Footer from "@/Layouts/Authenticated Admin/Footer";
 import Navbar from "@/Layouts/Authenticated Admin/Navbar";
 import Delete from "@/Components/Delete";
 
-export default function AddChild({ user, children, errors }) {
+export default function AddChild({ user, children }) {
 
     console.log(children);
     const [name, setName] = useState("");
@@ -36,13 +36,7 @@ export default function AddChild({ user, children, errors }) {
         setGender;
     };
 
-    // const deleteChild = async (id) => {
-    //     Inertia.delete(`${URL}/${id}`)    }
-    // const deletePost = async (id) => {
-    //     Inertia.delete(`/add-child/${id}`);
-    // }
-
-    return (
+       return (
         <>
             <Navbar />
             <Head title="Tambah Data Anak" />
@@ -97,35 +91,32 @@ export default function AddChild({ user, children, errors }) {
                             </tr>
                         </thead>
                         <tbody>
-                            {children
-                                ? children.map((index, key) => {
-                                      return (
-                                          <tr className="bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
-                                              <th
-                                                  scope="row"
-                                                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                                              >
-                                                  {index.name}
-                                              </th>
-                                              <td className="px-6 py-4">
-                                                  {index.mom_name}
-                                              </td>
-                                              <td className="px-6 py-4 text-center">
-                                                  {index.birthdate}
-                                              </td>
-                                              <td className="px-6 py-4 text-center">
-                                                  {index.gender}
-                                              </td>
-                                              {/* <td className="px-6 py-4 text-center">        
-                                                  <Delete  onClick={() => deletePost(children.id)}>Button</Delete>
-                                              </td> */}
-                                              <td className="px-6 py-4 border-b">
-                                                <Delete URL={'/hapus-anak'} id={index.id}/>
-                                            </td>
-                                          </tr>
-                                      );    
-                                  })
-                                : ""}
+                                {children
+                                    ? children.map((index, key) => {
+                                        return (
+                                            <tr className="bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
+                                                <th
+                                                    scope="row"
+                                                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                                                >
+                                                    {index.name}
+                                                </th>
+                                                <td className="px-6 py-4">
+                                                    {index.mom_name}
+                                                </td>
+                                                <td className="px-6 py-4 text-center">
+                                                    {index.birthdate}
+                                                </td>
+                                                <td className="px-6 py-4 text-center">
+                                                    {index.gender}
+                                                </td>
+                                                <td className="px-6 py-4 border-b">
+                                                    <Delete URL={'/hapus-anak'} id={index.id}/>
+                                                </td>
+                                            </tr>
+                                        );    
+                                    })
+                                    : ""}
                         </tbody>
                     </table>
                 </div>

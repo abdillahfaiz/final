@@ -2,12 +2,11 @@ import React from "react";
 import { Head } from "@inertiajs/inertia-react";
 import Navbar from "@/Layouts/Authenticated Admin/Navbar";
 import Footer from "@/Layouts/Authenticated Admin/Footer";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, } from "chart.js";
-import { Doughnut, } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
 import { Icon } from "@iconify/react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
 
 export default function Dashboard({ auth, children, male, female, user }) {
     const data = {
@@ -16,7 +15,7 @@ export default function Dashboard({ auth, children, male, female, user }) {
             {
                 label: "Gender",
                 data: [male, female, children, user],
-                backgroundColor: ["#458DB3", "#5CBF88", "#EA7777" , "#C7F37E"],
+                backgroundColor: ["#458DB3", "#5CBF88", "#EA7777", "#C7F37E"],
             },
         ],
     };
@@ -29,28 +28,33 @@ export default function Dashboard({ auth, children, male, female, user }) {
             <div className="my-24 mx-10">
                 <Head title="Dashboard" />
                 <div className="w-full block p-3 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100">
-                        <h1>Hi! Welcome back {auth.user.name}</h1>
-                    </div>
+                    <h1>Hi! Welcome back {auth.user.name}</h1>
+                </div>
                 <div className="my-28">
                     <h1 className="animate-pulse mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                         Sistem Informasi Monitoring{" "}
                         <span className="text-blue-600 dark:text-blue-500">
-                           Pertumbuhan Anak 
+                            Pertumbuhan Anak
                         </span>{" "}
                         dan
-                        <span className="text-blue-600 dark:text-blue-500">{" "}
+                        <span className="text-blue-600 dark:text-blue-500">
+                            {" "}
                             Imunisasi
                         </span>
                     </h1>
                     <p className="mb-12 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
-                        Dibuat dan dikembangkan agar mempermudah input data perkembangan anak setiap bulan bagi kader posyandu setempat dan membantu para ibu untuk mempermudah dalam monitoring perkembangan anak nya
+                        Dibuat dan dikembangkan agar mempermudah input data
+                        perkembangan anak setiap bulan bagi kader posyandu
+                        setempat dan membantu para ibu untuk mempermudah dalam
+                        monitoring perkembangan anak nya
                     </p>
-                    <p><span className="bg-blue-100 text-blue-800 text-xl font-semibold  px-2.5 py-0.5 rounded">Total User : {user}</span></p>
+                    <p>
+                        <span className="bg-blue-100 text-blue-800 text-xl font-semibold  px-2.5 py-0.5 rounded">
+                            Total User : {user}
+                        </span>
+                    </p>
                 </div>
-
                 <div>
-                    
-
                     {/* -- COUNT -- */}
                     <div className="container mb-24 mt-16 px-6 mx-auto">
                         <section className="mb-32 text-gray-800 mt-40 text-center">
@@ -63,7 +67,12 @@ export default function Dashboard({ auth, children, male, female, user }) {
                                     <div className="rounded-lg shadow-lg h-full block bg-white">
                                         <div className="flex justify-center">
                                             <div className="p-4 bg-blue-600 rounded-full shadow-lg inline-block -mt-8">
-                                            <Icon icon="fa6-solid:children" color="#f1f1f1" width="30" height="30" />
+                                                <Icon
+                                                    icon="fa6-solid:children"
+                                                    color="#f1f1f1"
+                                                    width="30"
+                                                    height="30"
+                                                />
                                             </div>
                                         </div>
                                         <div className="p-6">
@@ -86,7 +95,12 @@ export default function Dashboard({ auth, children, male, female, user }) {
                                     <div className="rounded-lg shadow-lg h-full block bg-white">
                                         <div className="flex justify-center">
                                             <div className="p-4 bg-blue-600 rounded-full shadow-lg inline-block -mt-8">
-                                            <Icon icon="mdi:face-female" color="#f1f1f1" width="30" height="30" />
+                                                <Icon
+                                                    icon="mdi:face-female"
+                                                    color="#f1f1f1"
+                                                    width="30"
+                                                    height="30"
+                                                />
                                             </div>
                                         </div>
                                         <div className="p-6">
@@ -109,8 +123,12 @@ export default function Dashboard({ auth, children, male, female, user }) {
                                     <div className="rounded-lg shadow-lg h-full block bg-white">
                                         <div className="flex justify-center">
                                             <div className="p-4 bg-blue-600 rounded-full shadow-lg inline-block -mt-8">
-                                            <Icon icon="mdi:face-male" color="#f1f1f1" width="30" height="30" />
-
+                                                <Icon
+                                                    icon="mdi:face-male"
+                                                    color="#f1f1f1"
+                                                    width="30"
+                                                    height="30"
+                                                />
                                             </div>
                                         </div>
                                         <div className="p-6">
@@ -131,7 +149,6 @@ export default function Dashboard({ auth, children, male, female, user }) {
                             </div>
                         </section>
                     </div>
-
                     {/* -- END COUNT -- */}
 
                     {/* -- CHART START -- */}
@@ -140,12 +157,7 @@ export default function Dashboard({ auth, children, male, female, user }) {
                             <Doughnut data={data} options={options}></Doughnut>
                         </div>
                     </div>
-
-                    {/* -- CHART END -- */}
-
-                    {/* --ARTICLES-- */}
                 </div>
-
             </div>
             <Footer />
         </>

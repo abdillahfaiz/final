@@ -16,15 +16,8 @@ class UserDataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        // if($request->search){
-        //     // $search = $request->get('search');
-        //     $user = User::where('name', 'like', '%' . request("search") . '%');
-        // }else{
-        //     $user = User::all();
-        // }
-        // $user = User::search(request('search'));
         $user = User::where('id', '!=', '1')->get();
         return Inertia::render('UserData', ['user' => $user]);
     }
@@ -121,10 +114,9 @@ class UserDataController extends Controller
 
     public function delete(User $user, $id)
     {
-        // dd($user);
         $user = User::find($id);
         $user->delete();
 
-        return redirect()->route('user-data')->with('succes','Data Berhasil Disimpan!');
+        return redirect()->route('user-data')->with('succes','Data Berhasil Dihapus!');
     }
 }

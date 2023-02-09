@@ -44,8 +44,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 // Route::get('/dashboard-user', [HomeController::class, 'index'])->middleware(['auth', 'role:user'])->name('dashboard-user');
 
 //DATA USER PAGE
-Route::get('/data-user', [UserDataController::class, 'index'])->middleware(['auth'])->name('user-data');
-Route::delete('/hapus-user/{id}', [UserDataController::class, 'delete'])->middleware(['auth'])->name('delete-user');
+Route::get('/data-user', [UserDataController::class, 'index'])->middleware(['auth', 'role:admin'])->name('user-data');
+Route::delete('/hapus-user/{id}', [UserDataController::class, 'delete'])->middleware(['auth', 'role:admin'])->name('delete-user');
 
 Route::get('/data-anak', [ChildDataController::class, 'index'])->middleware(['auth', 'role:admin'])->name('child-data');
 Route::get('/data-pertumbuhan/{id}', [GrowthDataController::class, 'index'])->middleware(['auth', 'role:admin'])->name('growth-data');

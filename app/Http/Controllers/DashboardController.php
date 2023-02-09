@@ -17,9 +17,6 @@ class DashboardController extends Controller
         $male = Children::where('gender', 'LAKI LAKI')->count();
         $female = Children::where('gender', 'PEREMPUAN')->count();
 
-
-        // $totalchild = Children::with('user')->get()->count();
-
         return Inertia::render('Dashboard', [
             'user' => $user,
             'children' => $children,
