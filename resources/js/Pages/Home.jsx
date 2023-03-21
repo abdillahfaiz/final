@@ -7,34 +7,39 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function DashboardUser({ auth, children, growthData}) {
-    console.log(children)
+export default function DashboardUser({ auth, children, growthData }) {
+    console.log(children);
     console.log(growthData);
     return (
         <>
             <Head title="Dashboard User" />
-            <Navbar     email={auth.user.email}/>
+            <Navbar email={auth.user.email} />
             <div
                 className="justify-between mx-12 mt-4 flex p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600"
                 role="alert"
             >
                 <div className="mx-2 my-auto flex">
-                <div>
-                    Hi! Welcome back {auth.user.name}
-                </div>
+                    <div>Hi! Welcome back {auth.user.name}</div>
                 </div>
                 <ResponsiveNavLink
-                                    method="post"
-                                    href={route("logout")}
-                                    as="button"
-                                >
-                                    Log Out
-                                </ResponsiveNavLink>
-            </div>'
-            
-
-
+                    method="post"
+                    href={route("logout")}
+                    as="button"
+                >
+                    Log Out
+                </ResponsiveNavLink>
+            </div>
+            '<div className="m-auto items-center"></div>
             <div className="container items-center px-4 m-auto mb-24">
+                {children.map((index) => {
+                    return (
+                        <>
+                            <div className="m-auto items-center">
+                                <p>Data terakhir pertumbuhan {index.name}</p>
+                            </div>
+                        </>
+                    );
+                })}
                 <div className="flex flex-wrap pb-3 mx-4 md:mx-24 lg:mx-0">
                     <div className="w-full p-2 lg:w-1/4 md:w-1/2">
                         <div className="flex flex-col px-6 py-10 overflow-hidden bg-white hover:bg-gradient-to-br hover:from-purple-400 hover:via-blue-400 hover:to-blue-500 rounded-xl shadow-lg duration-300 hover:shadow-2xl group">
@@ -73,7 +78,7 @@ export default function DashboardUser({ auth, children, growthData}) {
                                             d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
                                         />
                                     </svg>
-                                   
+
                                     {growthData.date}
                                 </div>
                             </div>
@@ -185,7 +190,7 @@ export default function DashboardUser({ auth, children, growthData}) {
                                             d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
                                         />
                                     </svg>
-                                    {growthData.date    }
+                                    {growthData.date}
                                 </div>
                             </div>
                             <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-gray-700 mt-12 group-hover:text-gray-50">
@@ -249,7 +254,7 @@ export default function DashboardUser({ auth, children, growthData}) {
                                 {growthData.status}
                             </h1>
                             <div className="flex flex-row justify-between group-hover:text-gray-200">
-                                <p className="text-green">Status Gizi  </p>
+                                <p className="text-green">Status Gizi </p>
                                 <span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"

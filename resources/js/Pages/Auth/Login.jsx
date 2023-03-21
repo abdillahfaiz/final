@@ -5,9 +5,10 @@ import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
+import { Icon } from '@iconify/react';
 
-export default function Login({ status}) {
-    const { data, setData, post, processing, errors} = useForm({
+export default function Login({ status }) {
+    const { data, setData, post, processing, errors } = useForm({
         email: "",
         password: "",
     });
@@ -46,7 +47,7 @@ export default function Login({ status}) {
                                     Selamat Datang di MyPosyandu Monitoring System Information
                                 </p>
                             </div>
-                            <ApplicationLogo className={"w-1/2 m-auto"}/>
+                            <ApplicationLogo className={"w-1/2 m-auto"} />
                         </div>
                         <div className="xl:ml-20 xl:w-4/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0 ">
                             <form onSubmit={submit}>
@@ -109,14 +110,14 @@ export default function Login({ status}) {
                                         Log In
                                     </PrimaryButton>
                                     <p className="text-center text-sm font-semibold mt-2 pt-1 mb-0">
-                                        Don't have an account?
-                                        <a
-                                            href={route('register')}
-                                            className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
-                                        >
-                                            Register
-                                        </a>
+                                        Belum punya akun ?
                                     </p>
+                                    <a href="https://wa.me/6281991467356">
+                                        <button className="justify-center flex w-full text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-xs px-2.5 py-1 md:text-sm md:px-5 md:py-2.5  text-center mr-2 mb-2 mt-4" type="button">
+                                            <Icon icon="ic:baseline-whatsapp" color="white" width="25" /><p className="my-1 mx-1">Hubungi Admin</p>
+                                        </button>
+                                    </a>
+
                                 </div>
                             </form>
                         </div>
@@ -124,6 +125,6 @@ export default function Login({ status}) {
                 </div>
             </section>
         </>
-       
+
     );
 }

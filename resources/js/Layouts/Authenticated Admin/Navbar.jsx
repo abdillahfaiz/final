@@ -7,7 +7,7 @@ export default function Navbar() {
         <nav className="flex justify-between bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
             <div className="container flex flex-wrap items-center justify-between mx-auto">
                 <a href={route("dashboard")} className="flex items-center">
-                    <ApplicationLogo className={"h-12 mr-3 sm:h-16"}/>
+                    <ApplicationLogo className={"h-12 mr-3 sm:h-16"} />
                     <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-black">
                         MyPosyandu
                     </span>
@@ -58,6 +58,15 @@ export default function Navbar() {
                         </li>
                         <li>
                             <NavLink
+
+                                href={route("add-user")}
+                                active={route().current("add-user")}
+                            >
+                                Register user
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
                                 href={route("user-data")}
                                 active={route().current("user-data")}
                             >
@@ -66,13 +75,14 @@ export default function Navbar() {
                         </li>
                         <li>
                             <NavLink
-                            
+
                                 href={route("child-data")}
                                 active={route().current("child-data")}
                             >
                                 Data Anak
                             </NavLink>
                         </li>
+
                         <li>
                             <NavLink
                                 href={route("articles")}

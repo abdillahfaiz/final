@@ -30,10 +30,24 @@ class UserDataController extends Controller
         return Inertia::render('AddChild', ['user' => $user, 'children' => $children, 'countChild' => $countChild]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+        return redirect()->back()->with('succes', 'Data Berhasil Disimpan!');
     }
+
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -60,8 +74,8 @@ class UserDataController extends Controller
             'user_id' => $request->user_id,
             'gender' => $request->gender,
         ]);
-        return redirect()->back()->with('succes','Data Berhasil Disimpan!');
-        return Inertia::render('AddChild',)->with('succes','Data Berhasil Disimpan!');
+        return redirect()->back()->with('succes', 'Data Berhasil Disimpan!');
+        return Inertia::render('AddChild', )->with('succes', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -72,7 +86,6 @@ class UserDataController extends Controller
      */
     public function show($id)
     {
-        
     }
 
     /**
@@ -117,6 +130,6 @@ class UserDataController extends Controller
         $user = User::find($id);
         $user->delete();
 
-        return redirect()->route('user-data')->with('succes','Data Berhasil Dihapus!');
+        return redirect()->route('user-data')->with('succes', 'Data Berhasil Dihapus!');
     }
 }

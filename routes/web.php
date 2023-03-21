@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DaftarUserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDataController;
@@ -47,6 +48,9 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 Route::get('/data-user', [UserDataController::class, 'index'])->middleware(['auth', 'role:admin'])->name('user-data');
 Route::delete('/hapus-user/{id}', [UserDataController::class, 'delete'])->middleware(['auth', 'role:admin'])->name('delete-user');
 
+Route::get('/tambah-user', [DaftarUserController::class, 'index'])->middleware(['auth', 'role:admin'])->name('add-user');
+Route::post('/store-user', [DaftarUserController::class, 'store'])->middleware(['auth', 'role:admin'])->name('store-user');
+
 Route::get('/data-anak', [ChildDataController::class, 'index'])->middleware(['auth', 'role:admin'])->name('child-data');
 Route::get('/data-pertumbuhan/{id}', [GrowthDataController::class, 'index'])->middleware(['auth', 'role:admin'])->name('growth-data');
 Route::post('/tambah-data-pertumbuhan', [GrowthDataController::class, 'store'])->middleware(['auth', 'role:admin'])->name('store-growth-data');
@@ -56,11 +60,11 @@ Route::get('/artikel', [ArticleController::class, 'index'])->middleware('auth')-
 Route::get('/tambah-artikel', [ArticleController::class, 'create'])->middleware(['auth', 'verified', 'role:admin'])->name('add-article');
 Route::post('/store-artikel', [ArticleController::class, 'store'])->middleware(['auth', 'verified', 'role:admin'])->name('store-article');
 Route::delete('/hapus-artikel/{id}', [ArticleController::class, 'destroy'])->middleware(['auth', 'verified', 'role:admin'])->name('destroy-article');
-// 
+//
 //DETAIL ADD CHILD PAGE
-Route::get('/tambah-anak/{id}', [UserDataController::class, 'detail'])->middleware(['auth'])->name('add-child');
-Route::post('/tambah-anak', [UserDataController::class, 'store'])->middleware(['auth'])->name('store-child');
-Route::delete('/hapus-anak/{id}', [UserDataController::class, 'destroy'])->middleware(['auth'])->name('delete-child');
+Route::get('/tambah-anak/{id}', [UserDataController::class, 'detail'])->middleware(['auth', 'role:admin'])->name('add-child');
+Route::post('/tambah-anak', [UserDataController::class, 'store'])->middleware(['auth', 'role:admin'])->name('store-child');
+Route::delete('/hapus-anak/{id}', [UserDataController::class, 'destroy'])->middleware(['auth', 'role:admin'])->name('delete-child');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

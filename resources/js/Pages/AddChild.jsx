@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { Head } from "@inertiajs/inertia-react";
 import { Inertia } from '@inertiajs/inertia';
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -15,7 +15,7 @@ export default function AddChild({ user, children }) {
     const [address, setAddress] = useState("");
     const [birthdate, setBirthdate] = useState("");
     const [gender, setGender] = useState("");
-    const [user_id,setUserID] = useState(user.id);
+    const [user_id, setUserID] = useState(user.id);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -36,7 +36,7 @@ export default function AddChild({ user, children }) {
         setGender;
     };
 
-       return (
+    return (
         <>
             <Navbar />
             <Head title="Tambah Data Anak" />
@@ -44,7 +44,7 @@ export default function AddChild({ user, children }) {
                 <div className="flex flex-col items-center py-8 px-8 ">
                     <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="https://source.unsplash.com/random/200x200?sig=1"
+                        src="https://as1.ftcdn.net/v2/jpg/01/16/24/44/1000_F_116244459_pywR1e0T3H7FPk3LTMjG6jsL3UchDpht.jpg"
                         alt="Bonnie image"
                     />
                     <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -91,32 +91,32 @@ export default function AddChild({ user, children }) {
                             </tr>
                         </thead>
                         <tbody>
-                                {children
-                                    ? children.map((index, key) => {
-                                        return (
-                                            <tr className="bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
-                                                <th
-                                                    scope="row"
-                                                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                                                >
-                                                    {index.name}
-                                                </th>
-                                                <td className="px-6 py-4">
-                                                    {index.mom_name}
-                                                </td>
-                                                <td className="px-6 py-4 text-center">
-                                                    {index.birthdate}
-                                                </td>
-                                                <td className="px-6 py-4 text-center">
-                                                    {index.gender}
-                                                </td>
-                                                <td className="px-6 py-4 border-b">
-                                                    <Delete URL={'/hapus-anak'} id={index.id}/>
-                                                </td>
-                                            </tr>
-                                        );    
-                                    })
-                                    : ""}
+                            {children
+                                ? children.map((index, key) => {
+                                    return (
+                                        <tr className="bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
+                                            <th
+                                                scope="row"
+                                                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                                            >
+                                                {index.name}
+                                            </th>
+                                            <td className="px-6 py-4">
+                                                {index.mom_name}
+                                            </td>
+                                            <td className="px-6 py-4 text-center">
+                                                {index.birthdate}
+                                            </td>
+                                            <td className="px-6 py-4 text-center">
+                                                {index.gender}
+                                            </td>
+                                            <td className="px-6 py-4 border-b">
+                                                <Delete URL={'/hapus-anak'} id={index.id} />
+                                            </td>
+                                        </tr>
+                                    );
+                                })
+                                : ""}
                         </tbody>
                     </table>
                 </div>
@@ -232,7 +232,7 @@ export default function AddChild({ user, children }) {
                                             >
                                                 Gender
                                             </label>
-                                            
+
                                             <select
                                                 id="gender"
                                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
